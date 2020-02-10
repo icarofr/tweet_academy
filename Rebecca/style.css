@@ -8,9 +8,54 @@
     
 }
 
+.logo
+{
+  
+}
+
 .tweet
 {
     border-radius: 10px 10px 10px 10px;
     font-weight: bold;
     color: purple;
+    margin-left: 50px;
+}
+
+.tweet1
+{
+    margin-top: 170px;
+    margin-left: 395px;
+    border-radius: 10px 10px 10px 10px;
+    font-weight: bold;
+    color: purple;
+}
+
+.menu ul li 
+{
+    list-style: none;
+    line-height: 50px;
+     
+}
+
+.menu
+{
+    border: 1px solid rgb(141, 159, 173) ;
+    width: 250px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.menu a
+{
+    text-decoration: none;
+}
+
+.titre
+{
+  font-weight: bold;
+  color: purple;
+}
+.container1
+{
+    margin-left:400px;
+    margin-top: -490px;
 }

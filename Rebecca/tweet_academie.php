@@ -24,8 +24,10 @@
 
             <section>
                     <div class="container1">
-                    <div>Accueil</div>
-                    <div class="textarea" name="textarea" id="textfield"></div>
+                    <div class="titre"> ACCUEIL </div>
+                    <div class="textarea" name="textarea" id="textfield">
+                    <input class="tweet1" type="submit" name="tweet1" value="TWEET"/>
+                    </div>
                 </div>
             </section>
         </body>
