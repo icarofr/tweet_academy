@@ -1,0 +1,16 @@
+.textarea
+{
+    width: 500px;
+    height: 200px;
+    background-color: white;
+    border: solid 1px rgb(141, 159, 173); 
+    border-radius: 5px 5px 5px 5px; 
+    
+}
+
+.tweet
+{
+    border-radius: 10px 10px 10px 10px;
+    font-weight: bold;
+    color: purple;
+}
