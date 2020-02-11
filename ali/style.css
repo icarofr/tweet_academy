@@ -10,8 +10,23 @@ body {
     height: 1000px;
     background-color: #9f07a9;
 }
-
+.logo {
+    margin-top: 300px;
+    margin-left: 670px;
+    width: 510px;
+}
 #inscription {
     margin-left: 340px;
-    margin-top: 250px;
+    margin-top: 140px;
+}
+.t_inscription {
+    margin-left: -583px;
+    font-size: 65px;
+    color: #ffbe00;
+}
+.color {
+    color: #9f07a9;
+}
+.form_inscription {
+    margin-top: 130px;
 }
