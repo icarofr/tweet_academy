@@ -5,7 +5,7 @@
     background-color: white;
     border: solid 1px rgb(141, 159, 173); 
     border-radius: 15px 15px 15px 15px; 
-    margin-top:90px;
+    margin-top:50px;
 }
 
 .titre
@@ -43,14 +43,14 @@
 
 .image
 {
-    
-    margin-left: 435px;
+    margin-left: 300px;
     border-radius: 15px 15px 15px 15px;
     font-weight: bold;
     color: purple;
     width: 160px;
     height: 40px;
-    
+    margin-bottom: 20px;
+
 }
 
 .menu ul li 
