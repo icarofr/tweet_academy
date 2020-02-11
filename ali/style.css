@@ -1,0 +1,17 @@
+body {
+    background-color: white;
+}
+
+.fond_inscription {
+    display : flex;
+}
+.fond {
+    width: 50%;
+    height: 1000px;
+    background-color: #9f07a9;
+}
+
+#inscription {
+    margin-left: 340px;
+    margin-top: 250px;
+}
