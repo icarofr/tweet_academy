@@ -1,10 +1,10 @@
 .textarea
 {
-    width: 500px;
-    height: 200px;
+    width: 600px;
+    height: 220px;
     background-color: white;
     border: solid 1px rgb(141, 159, 173); 
-    border-radius: 5px 5px 5px 5px; 
+    border-radius: 15px 15px 15px 15px; 
     
 }
 
@@ -15,19 +15,23 @@
 
 .tweet
 {
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
     font-weight: bold;
     color: purple;
     margin-left: 50px;
+    width: 160px;
+    height: 40px;
 }
 
 .tweet1
 {
     margin-top: 170px;
     margin-left: 395px;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
     font-weight: bold;
     color: purple;
+    width: 160px;
+    height: 40px;
 }
 
 .menu ul li 
@@ -41,7 +45,9 @@
 {
     border: 1px solid rgb(141, 159, 173) ;
     width: 250px;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 15px 15px 15px 15px;
+    height: 430px;
+    margin-left: 50px;
 }
 
 .menu a
@@ -57,5 +63,41 @@
 .container1
 {
     margin-left:400px;
-    margin-top: -490px;
+    margin-top: -650px;
 }
+
+.search
+{
+    margin-left: 1070px;
+    margin-top:-215px;
+    color: purple;
+    
+}
+
+input .search
+{
+    border-radius: 15px 15px 15px 15px;
+}
+
+.filtre 
+{
+    margin-left: 1070px;
+    border: 1px solid rgb(141, 159, 173);
+    margin-right: 400px;
+    margin-top: 100px;
+    height: 260px;
+    border-radius: 15px 15px 15px 15px;
+    
+}
+
+li a
+{
+    text-decoration: none;
+    line-height: 30px;
+    
+}
+li
+{
+    list-style: none;
+}
+

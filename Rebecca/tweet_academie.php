@@ -30,5 +30,23 @@
                     </div>
                 </div>
             </section>
+            <section>
+            <div class="search">
+    <form action ="verif-form.php" method ="get">
+    <input type ="search" name ="search" placeholder= "Recherche tweet academie ...">
+    </form>
+  </div>
+            </section>
+
+            <section class="filtre">
+                <ul>Filtre de recherche
+            <li><a href="#">Personnes</a></li>
+            <li><a href="#">De tout le monde</a>
+            <li><a href="#">Personnes que vous suivez</a></li>
+                Localisation
+            <li><a href="#">Partout</a></li>
+            <li><a href="#">À proximité</a></li>
+            <li><a href="#">Recherche avancée</a><li></ul>
+            </section>
         </body>
 </html>
