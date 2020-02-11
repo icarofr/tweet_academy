@@ -1,0 +1,73 @@
+
+.logo {
+   display: block;
+}
+#login {
+    float: right;
+}
+#purple {
+    height: 800px;
+    width: 800px;
+    background-color: rgb(75, 15, 75);
+}
+
+#button {
+    background-color: white;
+	border-radius:28px;
+	border:1px solid rgb(75, 15, 75);
+  cursor:pointer;
+	color:black;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+  padding:20px 50px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px rgb(75, 15, 75);
+  margin-top: 5px;
+  margin-right: 100px;
+  box-sizing: border-box;
+
+}
+#button:hover {
+	background-color: yellow;
+}
+#button:active {
+	float: right;
+  top:1px;
+}
+h2 {
+    color: white;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.logo {
+  width: 50px;
+  height: 50px;
+  
+}
+h3 {
+  float: right;
+  margin-right: 100px;
+}
+#button2 {
+  background-color: white;
+	border-radius:28px;
+	border:1px solid rgb(75, 15, 75);
+  cursor:pointer;
+	color:black;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+  padding:20px 50px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px rgb(75, 15, 75);
+  margin-right: 400px;
+  box-sizing: border-box;
+  
+}
+#button2:hover {
+	background-color: yellow;
+}
+#button2:active {
+  top:1px;
+}
