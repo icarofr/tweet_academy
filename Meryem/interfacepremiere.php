@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" href="bootstrap.min.css">
     <title>
         Commencez à tweeter dès maintenant !
     </title>
@@ -17,6 +17,7 @@
 <body>
     <div id="purple">
     <div id="inscription">
+        <div class="col-sm-2 col-md-3 col-lg-2 col-xl-2 menu-icons">
         <br>
         <br>
       <h1>Inscrivez-vous aujourd'hui ! <img src="/Meryem/logo.png" alt="logo site" id="logosite"></h1>
@@ -38,6 +39,7 @@
         <img src="/Meryem/logoconvers.png" class="logo" alt="logo convers">
         <br>
         <br>
+    </div>
     </div>
 </body>
 

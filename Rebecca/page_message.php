@@ -23,3 +23,19 @@
                 </ul>
                 <input class="tweet" type="submit" name="tweet"value="TWEET"/>
             </div>
+            <section>
+                <h1>Messages</h1>
+            </section>
+               
+                <form action ="verif-form.php" method ="get">
+                <input class="recherche" type ="search" name ="search" placeholder= "Rechercher des personnes et des groupes">
+                </form>
+
+                <div class="message">
+                    <p></p>
+                </div>
+
+                <input class="submit" type="submit" name="message" value ="Envoyer">
+
+                
+           
