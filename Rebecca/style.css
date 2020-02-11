@@ -24,10 +24,12 @@
 .tweet {
     border-radius: 15px 15px 15px 15px;
     font-weight: bold;
-    color: purple;
+    color: white;
     margin-left: 50px;
     width: 160px;
     height: 40px;
+    margin-left: 20px;
+    background-color: purple;
 }
 
 .tweet1
@@ -36,7 +38,8 @@
     margin-left: 435px;
     border-radius: 15px 15px 15px 15px;
     font-weight: bold;
-    color: purple;
+    color: white;
+    background-color: purple;
     width: 160px;
     height: 40px;
 }
@@ -46,10 +49,11 @@
     margin-left: 300px;
     border-radius: 15px 15px 15px 15px;
     font-weight: bold;
-    color: purple;
+    color: white;
+    background-color: purple;
     width: 160px;
     height: 40px;
-    margin-bottom: 20px;
+    margin-top: -100px;
 
 }
 
@@ -57,16 +61,18 @@
 {
     list-style: none;
     line-height: 50px;
-     
+   
 }
 
 .menu
 {
-    border: 1px solid rgb(141, 159, 173) ;
+    font-size: 20px;
     width: 250px;
     border-radius: 15px 15px 15px 15px;
     height: 430px;
     margin-left: 50px;
+    font-weight: bold;
+    
 }
 
 .menu a
@@ -83,9 +89,7 @@
 .search
 {
     margin-left: 1070px;
-    margin-top:-215px;
-    
-    
+    margin-top:-215px; 
 }
 
 .search input
@@ -102,15 +106,14 @@
     margin-top: 30px;
     height: 260px;
     border-radius: 15px 15px 15px 15px;
-    
 }
 
 li a
 {
     text-decoration: none;
-    line-height: 30px;
-    
+    line-height: 30px;  
 }
+
 li
 {
     list-style: none;
