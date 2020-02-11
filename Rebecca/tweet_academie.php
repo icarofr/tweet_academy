@@ -4,6 +4,8 @@
         <meta charset="utf-8"/>
         <title>Tweet_academie</title>
         <link rel="stylesheet" href="style.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
     </head>
         <body>
             <div class="logo">
@@ -21,8 +23,10 @@
                 </ul>
                 <input class="tweet" type="submit" name="tweet"value="TWEET"/>
             </div>
+            <input class="image" type="submit" name="image" value="Images"/>
 
             <section>
+            
                     <div class="container1">
                     <div class="titre"> ACCUEIL </div>
                     <div class="textarea" name="textarea" id="textfield">
@@ -47,6 +51,15 @@
             <li><a href="#">Partout</a></li>
             <li><a href="#">À proximité</a></li>
             <li><a href="#">Recherche avancée</a><li></ul>
+            </section>
+            <section>
+                <div class ="container2">
+                <div class="fil_actu" name="fil_actu" id="textfield">
+                    
+                    </div>
+                </div>
+
+                </div>
             </section>
         </body>
 </html>

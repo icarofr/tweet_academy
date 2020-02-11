@@ -1,20 +1,27 @@
-.textarea
+.container1 .textarea  
 {
     width: 600px;
     height: 220px;
     background-color: white;
     border: solid 1px rgb(141, 159, 173); 
     border-radius: 15px 15px 15px 15px; 
-    
+    margin-top:90px;
 }
+
+.titre
+{
+    margin-left: 10px;
+    font-weight: bold;
+    color: purple;
+}
+
 
 .logo
 {
   
 }
 
-.tweet
-{
+.tweet {
     border-radius: 15px 15px 15px 15px;
     font-weight: bold;
     color: purple;
@@ -25,13 +32,25 @@
 
 .tweet1
 {
-    margin-top: 170px;
-    margin-left: 395px;
+    margin-top: 174px;
+    margin-left: 435px;
     border-radius: 15px 15px 15px 15px;
     font-weight: bold;
     color: purple;
     width: 160px;
     height: 40px;
+}
+
+.image
+{
+    
+    margin-left: 435px;
+    border-radius: 15px 15px 15px 15px;
+    font-weight: bold;
+    color: purple;
+    width: 160px;
+    height: 40px;
+    
 }
 
 .menu ul li 
@@ -55,11 +74,6 @@
     text-decoration: none;
 }
 
-.titre
-{
-  font-weight: bold;
-  color: purple;
-}
 .container1
 {
     margin-left:400px;
@@ -70,13 +84,14 @@
 {
     margin-left: 1070px;
     margin-top:-215px;
-    color: purple;
+    
     
 }
 
 .search input
 {
     border-radius: 15px 15px 15px 15px;
+    height: 40px;
 }
 
 .filtre 
@@ -84,7 +99,7 @@
     margin-left: 1070px;
     border: 1px solid rgb(141, 159, 173);
     margin-right: 400px;
-    margin-top: 100px;
+    margin-top: 30px;
     height: 260px;
     border-radius: 15px 15px 15px 15px;
     
@@ -99,5 +114,15 @@ li a
 li
 {
     list-style: none;
+}
+
+.fil_actu
+{
+    border: 1px solid rgb(141, 159, 173);
+    width: 600px;
+    margin-left: 400px;
+    margin-top: -250px;
+    height: 300px;
+    border-radius: 15px 15px 15px 15px;
 }
 
