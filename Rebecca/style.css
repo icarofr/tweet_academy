@@ -172,4 +172,89 @@ h1
     font-weight: bold;
 }
 
+.profil
+{
+    border: 1px solid rgb(141, 159, 173);
+    width: 600px;
+    margin-left: 500px;
+    margin-top: -450px;
+    height: 190px;
+    background-color: rgb(163, 117, 163);
+    border-radius: 15px 15px 15px 15px;
+}
 
+.photo_profil
+{
+    width: 150px;
+    margin-left: 510px;
+    margin-top: -100px;
+}
+
+.editer
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+
+}
+
+.nom
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
+
+.prenom
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
+
+.pseudo
+{
+    color:purple;
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
+
+.email
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
+
+.password
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
+.bio
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
