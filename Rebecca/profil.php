@@ -1,3 +1,5 @@
+<?php include("connexionBdd.php");
+session_start();?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -29,12 +31,88 @@
                 </div >
                 <img class="photo_profil" src="logouser.png" alt="photo profil">
                 <p class="editer"> Editer le profil</p>
-                <p class =" nom ">Nom</p>
-                <p class = "prenom">Prénom</p>
-                <p class ="pseudo">Pseudo</p>
-                <p class = "bio">Bio</p>
-                <p class = "email">Email</p>
-                <p class = "password">Mot de passe actuel</p>
-                <p class = "password">Mot de passe</p>
-                <input class="valider" type="submit" name="Valider" value="Valider"/>
+                <div class="form_edit">
+                <form method="post" action="valid_modif.php">
+                <table>
+                    <tr>   
+                        <td>
+                            <label>Nom : </label>
+                        </td>
+                        <td>
+                            <input class="edit_profil" type="text" name="surname" placeholder="Votre nom" value = <?php echo $_SESSION['nom']?> />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Prénom : </label>
+                        </td>
+                        <td>
+                            <input class="edit_profil" type="text" name="name" id="prenom" placeholder="Votre prénom" value=<?php echo $_SESSION['prenom']?> />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Pseudo : </label>
+                        </td>
+                        <td>
+                            <input class="edit_profil" type="text" name="pseudo" id="prenom" placeholder="Votre prénom" value=<?php echo $_SESSION['prenom']?> />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Bio :</label>
+                        </td>
+                        <td>
+                            <input class="edit_profil" type="text" name="bio"  placeholder="Votre nouveau mot de passe"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Date de naissance : </label>
+                        </td>
+                        <td>
+                            <input class="edit_profil" type="date" name="birthdate" value=<?php echo $_SESSION['anniversaire']?>/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Email : </label>
+                        </td>
+                        <td>
+                            <input class="edit_profil" type="email" name="email" placeholder="Votre email" value=<?php echo $_SESSION['email']?>/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Mot de passe actuel :</label>
+                        </td>
+                        <td>
+                            <input class="edit_profil" type="password" name="password"  placeholder="Mot de passe actuel"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Nouveau mot de passe :</label>
+                        </td>
+                        <td>
+                            <input class="edit_profil" type="password" name="password1"  placeholder="Votre nouveau mot de passe"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Verification mot de passe :</label>
+                        </td>
+                        <td>
+                            <input class="edit_profil" type="password" name="password2" placeholder="Votre nouveau mot de passe"/>
+                        </td>
+                    </tr>
+                    <tr>    
+                    <td>
+                        <div edit_profil>
+                        <input type="submit" name="submit" value="INFORMATIONS MODIFIEES" />
+                        </div>
+                    </td>
+                    </tr>
+                    </table>
+                </div>
             </section>

@@ -268,3 +268,8 @@ input,.valider
     color:white;
     font-weight: bold;
 }
+
+.form_edit
+{
+    background-color: red;
+}
