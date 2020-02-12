@@ -23,6 +23,7 @@
       <h1>Inscrivez-vous aujourd'hui ! <img src="/Meryem/logo.png" alt="logo site" id="logosite"></h1>
       <br>
       <br>
+      <form method="POST" action="#">
         <button a href="ali/inscription.php" type="button" id="button2" placeholder="Inscrivez-vous" name="inscription">Inscrivez-vous</button>
 </div>
 <br>
