@@ -4,12 +4,11 @@
 <head>
     <meta charset="utf-8" />
     <title>
-        Commencez à tweeter dès maintenant !
+       @user
     </title>
 </head>
 
 <body>
-    
 
 </body>
 

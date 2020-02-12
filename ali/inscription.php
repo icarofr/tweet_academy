@@ -61,7 +61,7 @@ if (isset($_POST['forminscription'])) {
     </div>
 <div id="contenu">
     <div id="inscription">
-  
+        
     <h1 class="t_inscription">INSCR<span class="color">IPTION</span></h1>
 
     <form method="POST" action="">
