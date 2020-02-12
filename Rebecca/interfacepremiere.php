@@ -9,6 +9,7 @@
         Commencez à tweeter dès maintenant !
     </title>
     <div id="login">
+        <form method ="post" action = ""
     <input type="text" class="placeholder" placeholder="pseudo ou e-mail" name="username">
     <input type="password" class="placeholder" placeholder="mot de passe" name="password">
     <button type="button" id = "button" placeholder="Log in" name = "login">Login</button>
