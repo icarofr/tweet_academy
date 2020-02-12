@@ -36,5 +36,5 @@
                 <p class = "email">Email</p>
                 <p class = "password">Mot de passe actuel</p>
                 <p class = "password">Mot de passe</p>
-
+                <input class="valider" type="submit" name="Valider" value="Valider"/>
             </section>

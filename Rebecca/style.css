@@ -177,7 +177,7 @@ h1
     border: 1px solid rgb(141, 159, 173);
     width: 600px;
     margin-left: 500px;
-    margin-top: -450px;
+    margin-top: -500px;
     height: 190px;
     background-color: rgb(163, 117, 163);
     border-radius: 15px 15px 15px 15px;
@@ -257,4 +257,14 @@ h1
     margin-left: 520px;
     border-bottom: 1px solid rgb(141, 159, 173);
     width: 585px;
+}
+
+input,.valider
+{
+    margin-left: 300px;
+    border-radius: 15px 15px 15px 15px;
+    width: 90px;
+    background-color: purple;
+    color:white;
+    font-weight: bold;
 }
