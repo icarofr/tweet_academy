@@ -1,7 +1,6 @@
 <?php 
 session_start();
 include("classes/connexion.classes.php");
-include("connexionBdd.php");
 if(isset($_POST['username']) && isset($_POST['password'])) {
     $mailCo= $_POST['username'];
     $mdpCo = hash('ripemd160',$_POST['password']);
@@ -24,7 +23,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
         <form method ="POST">
     <input type="email" class="placeholder" placeholder="Votre e-mail" name="username">
     <input type="password" class="placeholder" placeholder="mot de passe" name="password">
-    <input type="submit" id = "button" placeholder="Log in" name ="login">Login</input>
+    <button type="submit" id = "button" placeholder="Log in" name ="login">Login</button>
         </form>
 </div>
 </head>

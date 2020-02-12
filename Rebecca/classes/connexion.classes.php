@@ -1,54 +1,36 @@
 <?php 
-include("connexionBdd.php");
 session_start();
+include("connexionBdd.php");
 
 class Connect
 {
-    protected $nom;
-    protected $prenom;
-    protected $pseudo;
-    protected $birthDate;
-    protected $mail;
-    protected $motDePass;
+    private $mail;
+    private $motDePass;
     protected $connexion;
     protected $bdd;
 
-    public function __construct($newNom, $newPrenom, $newMail, $newDN, $newPseudo, $newMDP)
+    public function __construct($newMail,$newMDP)
     {
-        $this->nom = $newNom;
-        $this->prenom = $newPrenom;
-        $this->birthDate = $newDN;
-        $this->pseudo = $newPseudo;
         $this->mail = $newMail;
         $this->motDePass = $newMDP;
         $this->connexion = new Connexion();
         $this->bdd = $this->connexion->getDB();
     }
 
-    public function connexion()
+    public function checkConnexion()
     {
-        echo $this->mail."<br>";
-        echo $this->pseudo."<br>";
-        echo $this->nom."<br>".$this->motDePass."<br>".$this->birthDate."<br>";
-        $query = $this->bdd->query("SELECT * FROM user WHERE email= '" . $mail . "' AND password= '" . $motDePass . "'");
-        var_dump($query->execute(array(
-            $this->nom,
-            $this->prenom,
-            $this->pseudo,
-            $this->birthDate,
-            $this->mail,
-            $this->motDePass
-        )));
-        $result = $query;
-        $result = $query->fetchAll();
-        foreach ($result as $valeur) {
-            $_SESSION['id_user'] = $valeur['id_user'];
-            $_SESSION['name'] = $valeur['name'];
-            $_SESSION['surname'] = $valeur['surname'];
-            $_SESSION['birthdate'] = $valeur['birthdate'];
-            $_SESSION['email'] = $valeur['email'];
-            $_SESSION['password'] = $valeur['password'];
-            $_SESSION['bio'] = $valeur['bio'];
+        $query = $this->bdd->query("SELECT * FROM `user` WHERE `email` = ? AND `password` = ?");
+        $query->execute(array($this->mail,$this->motDePass));
+        $result = $query->rowCount();
+        if($result == 1) {
+            $result = $query->fetch();
+            $_SESSION['id_user'] = $result['id_user'];
+            $_SESSION['name'] = $result['name'];
+            $_SESSION['surname'] = $result['surname'];
+            $_SESSION['birthdate'] = $result['birthdate'];
+            $_SESSION['email'] = $result['email'];
+            $_SESSION['password'] = $result['password'];
+            header("Location: home.php?id=".$_SESSION['id_user']);
         }
     }
 }
