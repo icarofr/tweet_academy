@@ -26,9 +26,9 @@ class Inscription
     
     public function insert()
     {
-        echo $this->mail."<br>";
-        echo $this->pseudo."<br>";
-        echo $this->nom."<br>".$this->motDePass."<br>".$this->birthDate."<br>";
+        // echo $this->mail."<br>";
+        // echo $this->pseudo."<br>";
+        // echo $this->nom."<br>".$this->motDePass."<br>".$this->birthDate."<br>";
         $query = $this->bdd->prepare("INSERT INTO `user` (`name`, `surname`, `pseudo`, `birthdate`, `email`, `password`, `subscribe_date`)
         VALUES(?,?,?,?,?,?,now())");
         var_dump($query->execute(array(
