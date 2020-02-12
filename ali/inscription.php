@@ -1,55 +1,49 @@
 <?php
-include('classe/inscription.class.php');
+include('class/inscription.class.php');
 
-session_start();
+if (isset($_POST['forminscription'])) {
 
-// if (isset($_POST['forminscription'])) {
+    $Nom = htmlspecialchars($_POST['nom']);
+    $Prenom = htmlspecialchars($_POST['prenom']);
+    $Pseudo = htmlspecialchars($_POST['pseudo']);
+    $Date = $_POST['date'];
+    $Mail = htmlspecialchars($_POST['mail']);
+    $Mail2 = htmlspecialchars($_POST['mail2']);
+    $Mdp = hash('ripemd160', $_POST['mdp']);
+    $Mdp2 = hash('ripemd160', $_POST['mdp2']);
 
-//     $Nom = htmlspecialchars($_POST['nom']);
-//     $Prenom = htmlspecialchars($_POST['prenom']);
-//     $Pseudo = htmlspecialchars($_POST['pseudo']);
-//     $Date = $_POST['date'];
-//     $Mail = htmlspecialchars($_POST['mail']);
-//     $Mail2 = htmlspecialchars($_POST['mail2']);
-//     $Mdp = hash('ripemd160', $_POST['mdp']);
-//     $Mdp2 = hash('ripemd160', $_POST['mdp2']);
+    //echo "D: ".$Date.", le S: ".$Pseudo.", Mdp : ".$Mdp.", NOM : ".$Nom.", P : ".$Prenom. ", Mail : ".$Mail;
     
-//     if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['date']) AND !empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2'])) 
-//     {    
-//         if ($Nom !='' && $Prenom !="" && $Date !="" && $Sexe!="" && $Ville !="") 
-//         {
-//             if ($Mail == $Mail2) 
-//             {
-//                 if (filter_var($Mail, FILTER_VALIDATE_EMAIL)) 
-//                 {
-//                     if ($Mdp == $Mdp2)
-//                     {
-//                         $nouvelleInscription = new Inscription($Nom, $Prenom, $Mail, $Date, $Ville, $Sexe, $Mdp, $loisir, $Age);
-//                         if ($nouvelleInscription->checkEmail($Mail)) {
-//                             if ($nouvelleInscription->checkAge() >= 18) {
-//                                 $nouvelleInscription->insert();
-//                                 $succes = "<font color='green'><strong>Success!</strong> Votre inscription à bien été validé.</font>";
-//                                 $nouvelleInscription->valid();
-//                             } else {
-//                                 $error= $nouvelleInscription->error('Tu as pas 18ans pour acceder au site !');
-//                             }
-//                         } else {
-//                             $error = $nouvelleInscription->error('Mail déja existant !');
-//                         }
-//                         //echo "D: ".$Date.", le S: ".$Sexe.", V: ".$Ville.", Mdp : ".$Mdp.", NOM : ".$Nom.", P : ".$Prenom. ", Mail : ".$Mail;
-//                     } else {
-//                         $error = "Vos mot de passe ne correspondent pas !";
-//                     }
-//                 }
-//             } else {
-//                 $error = "Vos adresses mail ne correspondent pas !";
-//             }
-//         }else {
-//             $error = "Veuillez remplir les champs !";
-//         }    
-//     }
-// }
-
+    if (isset($_POST['nom']) AND isset($_POST['prenom']) AND isset($_POST['date']) AND isset($_POST['pseudo']) AND isset($_POST['mail']) AND isset($_POST['mail2']) AND isset($_POST['mdp']) AND isset($_POST['mdp2'])) 
+    {    
+        if ($Nom !='' && $Prenom !="" && $Date !="" && $Pseudo !="") 
+        {
+            if ($Mail == $Mail2) 
+            {
+                if (filter_var($Mail, FILTER_VALIDATE_EMAIL)) 
+                {
+                    if ($Mdp == $Mdp2)
+                    {
+                        $nouvelleInscription = new Inscription($Nom, $Prenom, $Mail, $Date, $Pseudo, $Mdp);
+                        if ($nouvelleInscription->checkEmail($Mail)) {
+                                $nouvelleInscription->insert();
+                                $succes = "<font color='green'><strong>Success!</strong> Votre inscription à bien été validé.</font>";
+                        } else {
+                            $error = $nouvelleInscription->error('Mail déja existant !');
+                        }
+                        // echo "D: ".$Date.", le S: ".$Pseudo.", Mdp : ".$Mdp.", NOM : ".$Nom.", P : ".$Prenom. ", Mail : ".$Mail;
+                    } else {
+                        $error = "Vos mot de passe ne correspondent pas !";
+                    }
+                }
+            } else {
+                $error = "Vos adresses mail ne correspondent pas !";
+            }
+        }else {
+            $error = "Veuillez remplir les champs !";
+        }    
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,7 +64,7 @@ session_start();
   
     <h1 class="t_inscription">INSCR<span class="color">IPTION</span></h1>
 
-    <form method="POST" action="#">
+    <form method="POST" action="">
     <table class="form_inscription">
         <tr>
             <td align="right"><label for="nom">Nom :</label></td>
@@ -119,7 +113,6 @@ session_start();
     </form><br>
     
     </div>
-
 
 </div>
 </main>

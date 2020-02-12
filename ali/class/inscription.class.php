@@ -1,14 +1,13 @@
 <?php
 include('connexionBdd.php');
 
-class Inscription extends Connexion
+class Inscription
 {
     protected $nom;
     protected $prenom;
     protected $pseudo;
-    protected $birthdate;
+    protected $birthDate;
     protected $mail;
-    protected $subscribeDate;
     protected $motDePass;
     protected $connexion;
     protected $bdd;
@@ -21,36 +20,30 @@ class Inscription extends Connexion
         $this->pseudo = $newPseudo;
         $this->mail = $newMail;
         $this->motDePass = $newMDP;
-        $this->subscribeDate = $newDate;
         $this->connexion = new Connexion();
         $this->bdd = $this->connexion->getDB();
     }
     
     public function insert()
     {
-        // echo $this->age;
-        //echo $this->loisir;
-        //echo $this->nom."<br>".$this->motDePass."<br>".$this->dateDeNaissance."<br>";
-        $query = $this->bdd->prepare("INSERT INTO `users` (`nom`, `prenom`, `mail`, `date_naissance`, `age`, `ville`, `sexe`, `nom_loisir`, `mdp`)
-        VALUES(?,?,?,?,?,?,?,?,?)");
-        $query->execute(array(
+        echo $this->mail."<br>";
+        echo $this->pseudo."<br>";
+        echo $this->nom."<br>".$this->motDePass."<br>".$this->birthDate."<br>";
+        $query = $this->bdd->prepare("INSERT INTO `user` (`name`, `surname`, `pseudo`, `birthdate`, `email`, `password`, `subscribe_date`)
+        VALUES(?,?,?,?,?,?,now())");
+        var_dump($query->execute(array(
             $this->nom,
             $this->prenom,
+            $this->pseudo,
+            $this->birthDate,
             $this->mail,
-            $this->dateDeNaissance,
-            $this->age,
-            $this->ville,
-            $this->sexe,
-            $this->loisir,
             $this->motDePass
-        ));
-        $query2 = $this->bdd->prepare("INSERT INTO `fiche_loisir` (`nom_user`, `loisir1`) VALUES(?,?)");
-        $query2->execute(array($this->nom, $this->loisir));
+        )));
     }
 
     public function checkEmail($email)
     {
-        $check = $this->bdd->prepare('SELECT mail FROM users WHERE mail=?');
+        $check = $this->bdd->prepare('SELECT email FROM user WHERE email=?');
         $check->execute(array($email));
 
         if ($check->rowCount() >= 1) {
@@ -59,19 +52,10 @@ class Inscription extends Connexion
             return true;
         }
     }
-   
-    public function checkAge()
-    {
-        return date("Y") - substr($this->dateDeNaissance, 0, 4);
-    }
 
     public function error($msg)
     {
         return "<font color='FF0000'><strong>Error! </strong>".$msg."</font>";
     }
 
-    public function valide()
-    {
-        return "<div>Votre inscription à bien été validée</div>";
-    }
 }
