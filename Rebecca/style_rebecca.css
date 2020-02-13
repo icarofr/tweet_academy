@@ -1,0 +1,128 @@
+.container1 .textarea  
+{
+    width: 600px;
+    height: 220px;
+    background-color: white;
+    border: solid 1px rgb(141, 159, 173); 
+    border-radius: 15px 15px 15px 15px; 
+    margin-top:50px;
+}
+
+.titre
+{
+    margin-left: 10px;
+    font-weight: bold;
+    color: purple;
+}
+
+
+.logo
+{
+  
+}
+
+.tweet {
+    border-radius: 15px 15px 15px 15px;
+    font-weight: bold;
+    color: purple;
+    margin-left: 50px;
+    width: 160px;
+    height: 40px;
+}
+
+.tweet1
+{
+    margin-top: 174px;
+    margin-left: 435px;
+    border-radius: 15px 15px 15px 15px;
+    font-weight: bold;
+    color: purple;
+    width: 160px;
+    height: 40px;
+}
+
+.image
+{
+    margin-left: 300px;
+    border-radius: 15px 15px 15px 15px;
+    font-weight: bold;
+    color: purple;
+    width: 160px;
+    height: 40px;
+    margin-bottom: 20px;
+
+}
+
+.menu ul li 
+{
+    list-style: none;
+    line-height: 50px;
+     
+}
+
+.menu
+{
+    border: 1px solid rgb(141, 159, 173) ;
+    width: 250px;
+    border-radius: 15px 15px 15px 15px;
+    height: 430px;
+    margin-left: 50px;
+}
+
+.menu a
+{
+    text-decoration: none;
+}
+
+.container1
+{
+    margin-left:400px;
+    margin-top: -650px;
+}
+
+.search
+{
+    margin-left: 1070px;
+    margin-top:-215px;
+    
+    
+}
+
+.search input
+{
+    border-radius: 15px 15px 15px 15px;
+    height: 40px;
+}
+
+.filtre 
+{
+    margin-left: 1070px;
+    border: 1px solid rgb(141, 159, 173);
+    margin-right: 400px;
+    margin-top: 30px;
+    height: 260px;
+    border-radius: 15px 15px 15px 15px;
+    
+}
+
+li a
+{
+    text-decoration: none;
+    line-height: 30px;
+    
+}
+li
+{
+    list-style: none;
+}
+
+.fil_actu
+{
+    border: 1px solid rgb(141, 159, 173);
+    width: 600px;
+    margin-left: 400px;
+    margin-top: -250px;
+    height: 300px;
+    border-radius: 15px 15px 15px 15px;
+}
+
