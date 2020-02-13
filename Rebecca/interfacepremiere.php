@@ -1,7 +1,6 @@
 <?php 
 session_start();
 include("classes/connexion.classes.php");
-include("connexionBdd.php");
 if(isset($_POST['username']) && isset($_POST['password'])) {
     $mailCo= $_POST['username'];
     $mdpCo = hash('ripemd160',$_POST['password']);
