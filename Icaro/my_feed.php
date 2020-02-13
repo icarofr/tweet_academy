@@ -29,9 +29,9 @@
           <li><a href="#">Messages</a></li>
           <li><a href="#" onclick="switchTheme()">Theme</a></li>
         </ul>
-        <form class="navbar-form navbar-right" role="search">
+        <form action="tweetQuery.php" class="navbar-form navbar-right" role="search" method="GET">
           <div class="form-group input-group">
-            <input type="text" class="form-control" placeholder="Search..">
+            <input type="text" class="form-control" placeholder="Search.." name="search">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button">
                 <span class="glyphicon glyphicon-search"></span>
@@ -99,7 +99,7 @@
           </div>
           <div class="col-sm-9">
             <div class="well">
-              <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+              <p>Just Forgot that I had to mention #something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
             </div>
           </div>
         </div>

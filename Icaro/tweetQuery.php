@@ -3,19 +3,22 @@
 $servername = "localhost";
 $username = "admin";
 $dbname = "tweet_academy";
-$pseudo = $_POST['username'];
-$password = hash('ripemd160', $_POST['password']);
+$search = $_GET['search'];
 
 try {
     $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $username);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $loginQuery = $connection->prepare("SELECT *
-    FROM `user`
-    WHERE `pseudo` = '$pseudo' AND `password` = '$password';");
-    $loginQuery->execute();
-    if ($loginQuery->rowCount() >= 1) {
-        header("location: my_feed.php");
-    }}
+    $tweetQuery = $connection->prepare("SELECT *
+    FROM `tweet`
+    WHERE `content_tweet` LIKE '%$search%'");
+    $tweetQuery->execute();
+    if ($tweetQuery->rowCount() >= 1) {
+        var_dump($tweetQuery->fetchAll(PDO::FETCH_ASSOC));
+    }
+    else {
+        echo 'No tweets found!';
+    }
+}
 
     catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
