@@ -52,7 +52,7 @@
           <div class="col-sm-12">
             <div class="panel panel-default text-left">
               <div class="panel-body">
-                <p contenteditable="true">Status: Feeling Blue</p>
+                <p contenteditable="true">How you doin'?</p>
                 <button type="button" class="btn btn-default btn-sm">
                   <span class="glyphicon glyphicon-picture"></span> Photo
                 </button>
@@ -74,6 +74,8 @@
           <div class="col-sm-9">
             <div class="well">
               <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+              <button class="btn"><span class="glyphicon glyphicon-thumbs-up"></button>
+              <button class="btn"><span class="glyphicon glyphicon-retweet"></button>
             </div>
           </div>
         </div>

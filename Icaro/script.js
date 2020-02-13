@@ -32,6 +32,15 @@ window.onload = function() {
     }
     themeValue = 1;
   }
+  function hashtag(text) {
+    var repl = text.replace(/#(\w+)/g, '<a href="tweetQuery.php?search=%23$1">#$1</a>');
+    return repl;
+  }
+  for (let i = 0; i < document.querySelectorAll(".tweet").length; i++) {
+    document.querySelectorAll(".tweet")[i].innerHTML = hashtag(
+      document.querySelectorAll(".tweet")[i].innerHTML
+    );
+  }
 };
 
 function switchTheme() {
