@@ -52,6 +52,7 @@
           <div class="col-sm-12">
             <div class="panel panel-default text-left">
               <div class="panel-body">
+              <form method ="post" action=""
                 <p contenteditable="true">Status: Feeling Blue</p>
                 <button type="button" class="btn btn-default btn-sm">
                   <span class="glyphicon glyphicon-picture"></span> Photo
