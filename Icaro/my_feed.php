@@ -29,9 +29,9 @@
           <li><a href="#">Messages</a></li>
           <li><a href="#" onclick="switchTheme()">Theme</a></li>
         </ul>
-        <form class="navbar-form navbar-right" role="search">
+        <form action="tweetQuery.php" class="navbar-form navbar-right" role="search" method="GET">
           <div class="form-group input-group">
-            <input type="text" class="form-control" placeholder="Search..">
+            <input type="text" class="form-control" placeholder="Search.." name="search">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button">
                 <span class="glyphicon glyphicon-search"></span>
@@ -52,8 +52,12 @@
           <div class="col-sm-12">
             <div class="panel panel-default text-left">
               <div class="panel-body">
+<<<<<<< HEAD
               <form method ="post" action=""
                 <p contenteditable="true">Status: Feeling Blue</p>
+=======
+                <p contenteditable="true">How you doin'?</p>
+>>>>>>> 4d1b44475d23e554802d9e515c19e5516d7e39ff
                 <button type="button" class="btn btn-default btn-sm">
                   <span class="glyphicon glyphicon-picture"></span> Photo
                 </button>
@@ -75,6 +79,8 @@
           <div class="col-sm-9">
             <div class="well">
               <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+              <button class="btn"><span class="glyphicon glyphicon-thumbs-up"></button>
+              <button class="btn"><span class="glyphicon glyphicon-retweet"></button>
             </div>
           </div>
         </div>
@@ -100,7 +106,7 @@
           </div>
           <div class="col-sm-9">
             <div class="well">
-              <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+              <p>Just Forgot that I had to mention #something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
             </div>
           </div>
         </div>

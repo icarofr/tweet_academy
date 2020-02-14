@@ -14,9 +14,8 @@ try {
     WHERE `pseudo` = '$pseudo' AND `password` = '$password';");
     $loginQuery->execute();
     if ($loginQuery->rowCount() >= 1) {
-        echo "<h1>Success!</h1><h2>You can now access the member area.<h2>";
-        ;};
-    }
+        header("location: my_feed.php");
+    }}
 
     catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
