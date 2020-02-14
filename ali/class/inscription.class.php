@@ -31,20 +31,32 @@ class Inscription
         // echo $this->nom."<br>".$this->motDePass."<br>".$this->birthDate."<br>";
         $query = $this->bdd->prepare("INSERT INTO `user` (`name`, `surname`, `pseudo`, `birthdate`, `email`, `password`, `subscribe_date`)
         VALUES(?,?,?,?,?,?,now())");
-        var_dump($query->execute(array(
+        $query->execute(array(
             $this->nom,
             $this->prenom,
             $this->pseudo,
             $this->birthDate,
             $this->mail,
             $this->motDePass
-        )));
+        ));
     }
 
     public function checkEmail($email)
     {
         $check = $this->bdd->prepare('SELECT email FROM user WHERE email=?');
         $check->execute(array($email));
+
+        if ($check->rowCount() >= 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    public function checkPseudo($pseudo)
+    {
+        $check = $this->bdd->prepare('SELECT pseudo FROM user WHERE pseudo=?');
+        $check->execute(array($pseudo));
 
         if ($check->rowCount() >= 1) {
             return false;

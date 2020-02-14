@@ -1,0 +1,268 @@
+.container1 .textarea  
+{
+    width: 600px;
+    height: 220px;
+    background-color: white;
+    border: solid 1px rgb(141, 159, 173); 
+    border-radius: 15px 15px 15px 15px; 
+    margin-top:50px;
+}
+
+.titre
+{
+    margin-left: 10px;
+    font-weight: bold;
+    color: purple;
+}
+
+.tweet {
+    border-radius: 15px 15px 15px 15px;
+    font-weight: bold;
+    color: white;
+    margin-left: 50px;
+    width: 160px;
+    height: 40px;
+    margin-left: 20px;
+    background-color: purple;
+}
+
+.tweet1
+{
+    margin-top: 174px;
+    margin-left: 435px;
+    border-radius: 15px 15px 15px 15px;
+    font-weight: bold;
+    color: white;
+    background-color: purple;
+    width: 160px;
+    height: 40px;
+}
+
+.image
+{
+    margin-left: 300px;
+    border-radius: 15px 15px 15px 15px;
+    font-weight: bold;
+    color: white;
+    background-color: purple;
+    width: 160px;
+    height: 40px;
+    margin-top: -100px;
+}
+
+.menu ul li 
+{
+    list-style: none;
+    line-height: 50px;
+}
+
+.menu
+{
+    font-size: 20px;
+    width: 250px;
+    border-radius: 15px 15px 15px 15px;
+    height: 430px;
+    margin-left: 50px;
+    font-weight: bold;  
+}
+
+.menu a
+{
+    text-decoration: none;
+}
+
+.container1
+{
+    margin-left:400px;
+    margin-top: -650px;
+}
+
+.search
+{
+    margin-left: 1070px;
+    margin-top:-215px; 
+}
+
+.search input
+{
+    border-radius: 15px 15px 15px 15px;
+    height: 40px;
+}
+
+.filtre 
+{
+    margin-left: 1070px;
+    border: 1px solid rgb(141, 159, 173);
+    margin-right: 400px;
+    margin-top: 30px;
+    height: 260px;
+    border-radius: 15px 15px 15px 15px;
+}
+
+li a
+{
+    text-decoration: none;
+    line-height: 30px;  
+}
+
+li
+{
+    list-style: none;
+}
+
+.fil_actu
+{
+    border: 1px solid rgb(141, 159, 173);
+    width: 600px;
+    margin-left: 400px;
+    margin-top: -250px;
+    height: 300px;
+    border-radius: 15px 15px 15px 15px;
+}
+
+h1
+{
+    margin-left: 500px;
+    margin-top: -490px;
+    border-bottom: rgb(141, 159, 173) solid 1px;
+    border-left: rgb(141, 159, 173) solid 1px;
+    border-right: rgb(141, 159, 173) solid 1px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    width: 400px;
+}
+
+
+.recherche
+{
+    margin-left: 505px;
+    border-radius: 15px 15px 15px 15px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    width: 400px;
+    padding-top: 10px;
+    border-left: rgb(141, 159, 173) solid 1px;
+    border-right: rgb(141, 159, 173) solid 1px;
+}
+
+.message
+{
+    border: rgb(141, 159, 173) 1px solid;
+    width: 420px;
+    margin-top: 10px;
+    margin-left: 500px;
+    border-radius: 15px 15px 15px 15px;
+    height: 90px;
+}
+
+.submit
+{
+    margin-left: 500px;
+    margin-top: 10px;
+    border-radius: 15px 15px 15px 15px;
+    width: 90px;
+    background-color: purple;
+    color:white;
+    font-weight: bold;
+}
+
+.profil
+{
+    border: 1px solid rgb(141, 159, 173);
+    width: 600px;
+    margin-left: 500px;
+    margin-top: -500px;
+    height: 190px;
+    background-color: rgb(163, 117, 163);
+    border-radius: 15px 15px 15px 15px;
+}
+
+.photo_profil
+{
+    width: 150px;
+    margin-left: 510px;
+    margin-top: -100px;
+}
+
+.editer
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+
+}
+
+.nom
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
+
+.prenom
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
+
+.pseudo
+{
+    color:purple;
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
+
+.email
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
+
+.password
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
+.bio
+{
+    color:purple;
+   
+    font-weight: bold;
+    margin-left: 520px;
+    border-bottom: 1px solid rgb(141, 159, 173);
+    width: 585px;
+}
+
+input,.valider
+{
+    border-radius: 15px 15px 15px 15px;
+    width: 140px;
+    background-color:purple;
+    color:white;
+    font-weight: bold;
+}
+
+.form_edit
+{
+   
+}

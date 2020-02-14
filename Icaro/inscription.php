@@ -21,8 +21,12 @@ if (isset($_POST['forminscription'])) {
           if ($Mdp == $Mdp2) {
             $nouvelleInscription = new Inscription($Nom, $Prenom, $Mail, $Date, $Pseudo, $Mdp);
             if ($nouvelleInscription->checkEmail($Mail)) {
-              $nouvelleInscription->insert();
-              $succes = "<font color='green'><strong>Success!</strong> Votre inscription à bien été validé.</font>";
+                if($nouvelleInscription->checkPseudo($Pseudo)) {
+                  $nouvelleInscription->insert();
+                  $succes = "<font color='green'><strong>Success!</strong> Votre inscription à bien été validé.</  font>";
+                } else {
+                  $error = $nouvelleInscription->error('Pseudo déja existant !');
+                }
             } else {
               $error = $nouvelleInscription->error('Mail déja existant !');
             }
