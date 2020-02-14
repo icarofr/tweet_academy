@@ -1,3 +1,16 @@
+<?php include("database.php");
+session_start();
+
+if(isset($_POST['tweet']) and (isset($_POST['tweeter'])))
+{
+  $tweeter = new Tweet($id_autor, $tweet_date, $content_tweet);
+  $tweeter->tweeter();
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,15 +65,16 @@
           <div class="col-sm-12">
             <div class="panel panel-default text-left">
               <div class="panel-body">
-              <form method ="post" action=""
-                <p contenteditable="true">Status: Feeling Blue</p>
+              <form method ="post" action ="">
+                <p class="text_content" contenteditable="true" name="tweet">Status: Feeling Blue</p>
                 <button type="button" class="btn btn-default btn-sm">
                   <span class="glyphicon glyphicon-picture"></span> Photo
                 </button>
-                <button type="button" style="float: right" class="btn btn-primary btn-sm">
+                <button type="button" name="tweeter" style="float: right" class="btn btn-primary btn-sm">
                   <span class="glyphicon glyphicon-send"></span>
                   Tweet!
                 </button>
+              </form>
               </div>
             </div>
           </div>
