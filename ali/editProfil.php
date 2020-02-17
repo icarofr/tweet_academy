@@ -1,6 +1,6 @@
 <?php
-echo $_SESSION['id_user'];
 session_start();
+echo $_SESSION['id_user'];
 include("class/editProfil.class.php");
 
 if (isset($_SESSION['id_user'])) {

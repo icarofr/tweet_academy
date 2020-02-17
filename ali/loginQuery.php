@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "admin";
-$dbname = "tweet_academy";
+$dbname = "common-database";
 $pseudo = $_POST['username'];
 $password = hash('ripemd160', $_POST['password']);
 

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-echo $_SESSION['id_user']; 
+//echo $_SESSION['id_user']; 
 // echo $_SESSION['birthdate'];
 ?>
 <!DOCTYPE html>
@@ -15,6 +15,7 @@ echo $_SESSION['id_user'];
   <script src="jquery.min.js"></script>
   <script src="bootstrap.min.js"></script>
   <script src="script.js"></script>
+  
 </head>
 
 <body>
@@ -55,30 +56,28 @@ echo $_SESSION['id_user'];
     <div class="row">
       <div class="col-sm-10">
         <div class="row">
+          <form method ="POST" id="comment_form">
           <div class="col-sm-12">
             <div class="panel panel-default text-left">
               <div class="panel-body form-group">
-              <form method ="post" id="comment_form">
-                <textarea class="text_content form-control" id="comment_content" contenteditable="true" name="tweet" placeholder="Votre tweet"></textarea>
-                <button type="button" class="btn btn-default btn-sm">
+                <textarea class="text_content form-control" id="comment_content" name="comment_content" placeholder="Votre tweet"></textarea>
+                <!-- <button type="button" class="btn btn-default btn-sm">
                   <span class="glyphicon glyphicon-picture"></span> Photo
-                </button>
-                <button type="button" name="tweeter" style="float: right" class="btn btn-primary btn-sm">
+                </button> -->
+                <button type="submit" name="submit" id="submit" style="float:right" class="btn btn-primary btn-sm">
                   <span class="glyphicon glyphicon-send"></span>
                   Tweet!
                 </button>
-              </form>
               </div>
             </div>
           </div>
+        </form>
         </div>
+        <span id="comment_message"></span>
        
         <div class="row">
           <div class="col-sm-3">
-            <div class="well">
-              
-              <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-            </div>
+            
           </div>
           <div class="col-sm-9">
             <div class="well">
@@ -88,45 +87,7 @@ echo $_SESSION['id_user'];
             </div>
           </div>
         </div>
-    <!--<div class="row">
-           <div class="col-sm-3">
-            <div class="well">
-              <p>Bo</p>
-              <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-            </div>
-          </div>
-          <div class="col-sm-9"> -->
-            <!-- <div class="well">
-              <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="well">
-              <p>Jane</p>
-              <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-            </div>
-          </div>
-          <div class="col-sm-9">
-            <div class="well">
-              <p>Just Forgot that I had to mention #something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="well">
-              <p>Anja</p>
-              <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-            </div>
-          </div>
-          <div class="col-sm-9">
-            <div class="well">
-              <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-            </div>
-          </div>
-        </div> -->
+
       </div>
       <div class="col-sm-2 well">
         <p>Trending this week:</p>
@@ -151,19 +112,7 @@ echo $_SESSION['id_user'];
   <footer class="container-fluid text-center">
     <p><span class="glyphicon glyphicon-copyright-mark"></span> Copyright of W@C 2020. Suggestions and complaints <a href="Milton.jpg">here</a>.</p>
   </footer>
+  <script src="tweet.js"></script>
 </body>
 
 </html>
-
-<script>
-$(document).ready(function(){
- 
- $('#comment_form').on('submit', function(event){
-  event.preventDefault();
-  var form_data = $(this).serialize();
-  $.ajax({
-   url:"add_comment.php",
-   method:"POST",
-   data:form_data,
-   dataType:"JSON",
-   success:function(data)
