@@ -6,7 +6,7 @@ class Connexion
     public function __construct()
     {
         try {
-            $this->bdd = new PDO('mysql:dbname=common-database;host=127.0.0.1', 'admin', 'admin');
+            $this->bdd = new PDO('mysql:dbname=tweet_academy;host=127.0.0.1', 'admin', 'admin');
         } catch (Exception $e) {
             die('Connexion échoué :' . $e->getMessage());
         }

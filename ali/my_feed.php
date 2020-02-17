@@ -45,7 +45,7 @@ echo $_SESSION['id_user'];
           </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="editProfil.php"><img src="param.png" alt="" name="param" style="width: 30px;"/></a></li>
+          <li><a href="editProfil.php"><span class="glyphicon glyphicon-edit"></span></a></li>
           <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
         </ul>
       </div>
@@ -57,9 +57,9 @@ echo $_SESSION['id_user'];
         <div class="row">
           <div class="col-sm-12">
             <div class="panel panel-default text-left">
-              <div class="panel-body">
+              <div class="panel-body form-group">
               <form method ="post" id="comment_form">
-                <textarea class="text_content" id="comment_content" contenteditable="true" name="tweet" placeholder="Votre tweet"></textarea>
+                <textarea class="text_content form-control" id="comment_content" contenteditable="true" name="tweet" placeholder="Votre tweet"></textarea>
                 <button type="button" class="btn btn-default btn-sm">
                   <span class="glyphicon glyphicon-picture"></span> Photo
                 </button>
