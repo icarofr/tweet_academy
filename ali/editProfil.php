@@ -81,7 +81,7 @@ if(isset($_SESSION['id_user'])) {
           <li><a href="message.php">Messages</a></li>
           <li><a href="#" onclick="switchTheme()">Theme</a></li>
         </ul>
-        <form class="navbar-form navbar-right" role="search">
+        <form action="tweetQuery.php" class="navbar-form navbar-right" role="search">
           <div class="form-group input-group">
             <input type="text" class="form-control" placeholder="Search..">
             <span class="input-group-btn">
@@ -92,6 +92,7 @@ if(isset($_SESSION['id_user'])) {
           </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="editProfil.php"><img src="param.png" alt="" name="param" style="width: 30px;"/></a></li>
           <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
         </ul>
       </div>
