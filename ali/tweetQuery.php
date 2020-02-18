@@ -92,7 +92,7 @@ echo $_SESSION['id_user'];
                         echo "<div class=\"row\">
                         <div class=\"col-sm-3\">
                             <div class=\"well\">
-                            <p>" . $tweetValue['name'] . "</p>
+                            <p>" . $tweetValue['pseudo'] . "</p>
                             <span class=\"glyphicon glyphicon-user\"></span>
                             </div>
                             </div>

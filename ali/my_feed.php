@@ -39,7 +39,7 @@ session_start();
           <div class="form-group input-group">
             <input type="text" class="form-control" placeholder="Search.." name="search">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">
+              <button class="btn btn-default" type="submit">
                 <span class="glyphicon glyphicon-search"></span>
               </button>
             </span>
@@ -60,7 +60,7 @@ session_start();
           <div class="col-sm-12">
             <div class="panel panel-default text-left">
               <div class="panel-body form-group">
-                <textarea class="text_content form-control" id="comment_content" name="comment_content" placeholder="Votre tweet"></textarea>
+                <textarea class="text_content form-control" id="comment_content" onKeyUp="maxLength(this, 140);" name="comment_content" placeholder="Votre tweet"></textarea>
                 <!-- <button type="button" class="btn btn-default btn-sm">
                   <span class="glyphicon glyphicon-picture"></span> Photo
                 </button> -->
@@ -73,21 +73,8 @@ session_start();
           </div>
         </form>
         </div>
-        <span id="comment_message"></span>
-       
-        <div class="row">
-          <div class="col-sm-3">
-            
-          </div>
-          <div class="col-sm-9">
-            <div class="well">
-             
-              <button class="btn"><span class="glyphicon glyphicon-thumbs-up"></button>
-              <button class="btn"><span class="glyphicon glyphicon-retweet"></button>
-            </div>
-          </div>
-        </div>
-
+        <span id="comment_message"></span> 
+            <div id="display_comment"></div>
       </div>
       <div class="col-sm-2 well">
         <p>Trending this week:</p>

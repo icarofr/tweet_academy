@@ -20,11 +20,17 @@ try {
     {
         $comment_content = $_POST["comment_content"];
     }
+    if(strlen($_POST['comment_content']) > 141){
+        $error .= '<p class="text-danger">Do not exceed 140 characters</p>';
+       }
+       else{
+        $comment_content = $_POST["comment_content"];
+       }
     if($error == '')
     {
     $statement = $connection->prepare("INSERT INTO `tweet`(`id_autor`, `tweet_date`, `content_tweet`)
     VALUES (?,now(),?)");
-    var_dump($statement->execute(array($id_user,$comment_content)));
+    $statement->execute(array($id_user,$comment_content));
         $error = '<label class="text-success">Comment Added</label>';
     }
 
