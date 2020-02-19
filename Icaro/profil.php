@@ -15,9 +15,19 @@ try {
     $displayProfile = $displayProfile->fetchAll(0)[0];
     $userId = $displayProfile['id_user'];
     if ($userId == $_SESSION['id_user']) {
-      $footerButton = "<button class='btn btn-danger' style='margin-left: 40%;'>Logout</button></a>";
+      $footerButton = "<a href='sessionDestroy.php'><button class='btn btn-danger' style='margin-left: 40%;'>Logout</button></a>";
     } else {
-      $footerButton = "<button class='btn btn-primary' style='margin-left: 40%;'>Follow</button></a>";
+      $followQuery = $connection->prepare("SELECT * FROM `follow`
+      WHERE `id_follower` ='" . $_SESSION['id_user'] . "' AND `id_followed` ='$userId';");
+      $followQuery->execute();
+      if ($followQuery->rowCount() > 0) {
+        $footerButton = "<a href='followQuery.php?id=%40" . $displayProfile['pseudo'] . "&action=unfollow'>
+        <button class='btn' style='margin-left: 40%;'>Unfollow</button></a>";
+      }
+      else {
+        $footerButton = "<a href='followQuery.php?id=%40" . $displayProfile['pseudo'] . "&action=follow'>
+        <button class='btn btn-primary' style='margin-left: 40%;'>Follow</button></a>";
+      }
     }
   } else {
     $userId = $_SESSION['id_user'];
@@ -25,7 +35,7 @@ try {
     WHERE `id_user` = \"" . $userId  . "\"");
     $displayProfile->execute();
     $displayProfile = $displayProfile->fetchAll(0)[0];
-    $footerButton = "<button class='btn btn-danger' style='margin-left: 40%;'>Logout</button></a>";
+    $footerButton = "<a href='sessionDestroy.php'><button class='btn btn-danger' style='margin-left: 40%;'>Logout</button></a>";
   }
 
   $followingCount = $connection->prepare("SELECT COUNT(`id_follower`) AS 'followingCount'
@@ -137,7 +147,7 @@ $connection = null;
               echo "</div><br>";
             }
 
-            echo "<br><br><a href='sessionDestroy.php'>"
+            echo "<br><br>"
               . $footerButton .
               "<br><br>";
             ?>
