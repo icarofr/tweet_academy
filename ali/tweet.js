@@ -39,6 +39,6 @@ function load_comment() {
       $('#display_comment').html(data);
     }
   })
-},2000)
+},1000)
 }
 load_comment();

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-echo $_SESSION['id_user']; 
+//echo $_SESSION['id_user']; 
 // echo $_SESSION['birthdate'];
 ?>
 <!DOCTYPE html>
@@ -45,8 +45,9 @@ echo $_SESSION['id_user'];
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="editProfil.php"><img src="param.png" alt="" name="param" style="width: 30px;"/></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                    <li><a href="editProfil.php"><span class="glyphicon glyphicon-edit"></span></a></li>
+                    <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span></a></li>
+                    <li><a href="sessionDestroy.php"><span class="glyphicon glyphicon-off"></span></a></li>
                 </ul>
             </div>
         </div>

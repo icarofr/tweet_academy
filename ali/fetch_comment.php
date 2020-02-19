@@ -1,5 +1,5 @@
 <?php
-//  SELECT tweet.tweet_date,tweet.content_tweet,user.pseudo FROM user,tweet WHERE tweet.id_autor=1 AND user.id_user=1
+// SELECT tweet.tweet_date,tweet.content_tweet,user.pseudo FROM user,tweet WHERE tweet.id_autor=1 AND user.id_user=1
 session_start();
 $id_user = $_SESSION['id_user'];
 
@@ -19,10 +19,13 @@ $output = '';
 foreach($result as $row)
 {
     //var_dump($row);
+    $pseudo = $row['pseudo'];
 $output .= "
 <div class='col-sm-9'>
-    <div class='well'>By <b>". $row['pseudo']."</b> on <i>".$row['tweet_date']."</i>
-    <br>
+<form method='get' action='info_profil.php'>
+    <div class='well'>By <b><input type='text' name='pseudo' style='display: none;' value='$pseudo'/><button type='submit'>$pseudo</button></b> on <i>".$row['tweet_date']."</i>
+</form>
+    <br><br>
     ".$row['content_tweet']."
     </div>
     <button class='btn'><span class='glyphicon glyphicon-thumbs-up'></button>

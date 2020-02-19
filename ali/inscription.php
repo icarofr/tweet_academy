@@ -9,8 +9,8 @@ if (isset($_POST['forminscription'])) {
   $Date = $_POST['date'];
   $Mail = htmlspecialchars($_POST['mail']);
   $Mail2 = htmlspecialchars($_POST['mail2']);
-  $Mdp = hash('ripemd160', $_POST['mdp']);
-  $Mdp2 = hash('ripemd160', $_POST['mdp2']);
+  $Mdp = hash('ripemd160', $_POST['mdp']."vive le projet tweet_academy");
+  $Mdp2 = hash('ripemd160', $_POST['mdp2']."vive le projet tweet_academy");
 
   //echo "D: ".$Date.", le S: ".$Pseudo.", Mdp : ".$Mdp.", NOM : ".$Nom.", P : ".$Prenom. ", Mail : ".$Mail;
 

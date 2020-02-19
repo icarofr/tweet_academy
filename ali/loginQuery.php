@@ -4,7 +4,7 @@ $servername = "localhost";
 $username = "admin";
 $dbname = "common-database";
 $pseudo = $_POST['username'];
-$password = hash('ripemd160', $_POST['password']);
+$password = hash('ripemd160', $_POST['password']."vive le projet tweet_academy");
 
 try {
     $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $username);
