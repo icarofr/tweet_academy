@@ -1,3 +1,7 @@
+<?php
+session_start();
+// echo $_SESSION['birthdate'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,11 +25,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Tweet@!</a>
+                <a class="navbar-brand" href="my_feed.php">Tweet@cademie!</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="my_feed.php">Home</a></li>
                     <li><a href="#">Messages</a></li>
                     <li><a href="#" onclick="switchTheme()">Theme</a></li>
                 </ul>
@@ -40,6 +44,7 @@
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="editProfil.php"><span class="glyphicon glyphicon-edit"></span></a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                 </ul>
             </div>
@@ -52,7 +57,7 @@
                     <div class="col-sm-12">
                         <div class="panel panel-default text-left">
                             <div class="panel-body">
-                                <p contenteditable="true">How you doin'?</p>
+                                <p contenteditable="true" placeholder="How you doin'?"></p>
                                 <button type="button" class="btn btn-default btn-sm">
                                     <span class="glyphicon glyphicon-picture"></span> Photo
                                 </button>
@@ -83,7 +88,7 @@
                     if ($tweetQuery->rowCount() >= 1) {
                         $tweetValues = $tweetQuery->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($tweetValues as $tweetValue)
-                        echo "<div class=\"row\">
+                            echo "<div class=\"row\">
                         <div class=\"col-sm-3\">
                             <div class=\"well\">
                             <p>" . $tweetValue['name'] . "</p>
@@ -98,7 +103,6 @@
                         </div>
                     </div>
                 </div>";
-                            
                     } else {
                         echo 'No tweets found!';
                     }
@@ -108,7 +112,7 @@
 
                 $connection = null;
                 ?>
-                
+
             </div>
             <div class="col-sm-2 well">
                 <p>Trending this week:</p>

@@ -13,9 +13,23 @@ try {
     FROM `user`
     WHERE `pseudo` = '$pseudo' AND `password` = '$password';");
     $loginQuery->execute();
-    if ($loginQuery->rowCount() >= 1) {
-        header("location: my_feed.php");
-    }}
+    $query = $loginQuery->rowCount();
+        if ($query >= 1) {
+            session_start();
+            $query = $loginQuery->fetch();
+            $_SESSION['id_user'] = $query['id_user'];
+            $_SESSION['name'] = $query['name'];
+            $_SESSION['surname'] = $query['surname'];
+            $_SESSION['pseudo'] = $query['pseudo'];
+            $_SESSION['birthdate'] = $query['birthdate'];
+            $_SESSION['email'] = $query['email'];
+            $_SESSION['password'] = $query['password'];
+            $_SESSION['bio'] = $query['bio'];
+            header("location: my_feed.php?id=".$_SESSION['id_user']);
+        } else {
+            header("location: login.php");
+        }
+    }
 
     catch (PDOException $e) {
         echo "Error: " . $e->getMessage();

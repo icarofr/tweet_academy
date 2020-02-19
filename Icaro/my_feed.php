@@ -1,16 +1,6 @@
-<?php include("database.php");
-session_start();
-
-if(isset($_POST['tweet']) and (isset($_POST['tweeter'])))
-{
-  $tweeter = new Tweet($id_autor, $tweet_date, $content_tweet);
-  $tweeter->tweeter();
-}
-
-
-
+<?php
+// echo $_SESSION['birthdate'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,11 +24,11 @@ if(isset($_POST['tweet']) and (isset($_POST['tweeter'])))
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Tweet@!</a>
+        <a class="navbar-brand" href="my_feed.php">Tweet@!</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><a href="my_feed.php">Home</a></li>
           <li><a href="#">Messages</a></li>
           <li><a href="#" onclick="switchTheme()">Theme</a></li>
         </ul>
@@ -53,7 +43,8 @@ if(isset($_POST['tweet']) and (isset($_POST['tweeter'])))
           </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+          <li><a href="editProfil.php"><span class="glyphicon glyphicon-edit"></span></a></li>
+          <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
         </ul>
       </div>
     </div>
@@ -64,54 +55,46 @@ if(isset($_POST['tweet']) and (isset($_POST['tweeter'])))
         <div class="row">
           <div class="col-sm-12">
             <div class="panel panel-default text-left">
-              <div class="panel-body">
-<<<<<<< HEAD
-<<<<<<< HEAD
-              <form method ="post" action=""
-                <p contenteditable="true">Status: Feeling Blue</p>
-=======
-              <form method ="post" action ="">
-                <p class="text_content" contenteditable="true" name="tweet">Status: Feeling Blue</p>
->>>>>>> 82780aafb86ff5aff8da08de22f2088ea501124f
-=======
-                <p contenteditable="true">How you doin'?</p>
->>>>>>> 4d1b44475d23e554802d9e515c19e5516d7e39ff
-                <button type="button" class="btn btn-default btn-sm">
-                  <span class="glyphicon glyphicon-picture"></span> Photo
-                </button>
-                <button type="button" name="tweeter" style="float: right" class="btn btn-primary btn-sm">
-                  <span class="glyphicon glyphicon-send"></span>
-                  Tweet!
-                </button>
-              </form>
+              <div class="panel-body form-group">
+                <form method="post" id="comment_form">
+                  <textarea class="text_content form-control" id="comment_content" contenteditable="true" name="tweet" placeholder="Votre tweet"></textarea>
+                  <button type="button" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-picture"></span> Photo
+                  </button>
+                  <button type="button" name="tweeter" style="float: right" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-send"></span>
+                    Tweet!
+                  </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-sm-3">
             <div class="well">
-              <p>John</p>
+
               <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
             </div>
           </div>
           <div class="col-sm-9">
             <div class="well">
-              <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+
               <button class="btn"><span class="glyphicon glyphicon-thumbs-up"></button>
               <button class="btn"><span class="glyphicon glyphicon-retweet"></button>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-3">
+        <!--<div class="row">
+           <div class="col-sm-3">
             <div class="well">
               <p>Bo</p>
               <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
             </div>
           </div>
-          <div class="col-sm-9">
-            <div class="well">
+          <div class="col-sm-9"> -->
+        <!-- <div class="well">
               <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
             </div>
           </div>
@@ -141,7 +124,7 @@ if(isset($_POST['tweet']) and (isset($_POST['tweeter'])))
               <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-sm-2 well">
         <p>Trending this week:</p>
@@ -169,3 +152,4 @@ if(isset($_POST['tweet']) and (isset($_POST['tweeter'])))
 </body>
 
 </html>
+

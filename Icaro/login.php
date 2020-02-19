@@ -1,6 +1,3 @@
-<?php 
-include('loginQuery.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,11 +48,10 @@ include('loginQuery.php');
         <div class="row">
           <div class="col-sm-12">
             <h1>Welcome back!</h1>
-            <form action="" name="login" method="POST"><br>
+            <form action="loginQuery.php" name="login" method="POST"><br>
               <label>Username:&MediumSpace;</label> <input type="text" name="username"><br>
               <label>Password:&ThickSpace;</label> <input type="password" name="password"><br><br>
               <button type="submit" class="btn btn-submit">Submit</button>
-              <section ><?php echo $error; ?></section>
             </form>
 
           </div>
