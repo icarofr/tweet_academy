@@ -1,4 +1,5 @@
 <?php
+
 class Connexion
 {
     protected $bdd;
