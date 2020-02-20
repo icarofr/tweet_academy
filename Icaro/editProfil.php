@@ -1,7 +1,7 @@
 <?php
-error_reporting(0);
-echo $_SESSION['id_user'];
 session_start();
+error_reporting(0);
+//echo $_SESSION['id_user'];
 include("class/editProfil.class.php");
 
 if (isset($_SESSION['id_user'])) {
@@ -36,8 +36,8 @@ if (isset($_SESSION['id_user'])) {
     $insert->editBio();
   }
   if (isset($_POST['password1']) and !empty($_POST['password1']) and isset($_POST['password2']) and !empty($_POST['password2'])) {
-    $mdp1 = hash('ripemd160', $_POST['password1']);
-    $mdp2 = hash('ripemd160', $_POST['password2']);
+    $mdp1 = hash('ripemd160', $_POST['password1']."vive le projet tweet_academy");
+    $mdp2 = hash('ripemd160', $_POST['password2']."vive le projet tweet_academy");
 
     if ($mdp1 == $mdp2) {
       $insert = new EditMdp($_SESSION, $mdp1);
@@ -93,7 +93,7 @@ if (isset($_SESSION['id_user'])) {
         </form>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="editProfil.php"><span class="glyphicon glyphicon-edit"></span></a></li>
-          <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+          <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span></a></li>
         </ul>
       </div>
     </div>

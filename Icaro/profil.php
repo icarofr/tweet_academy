@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "admin";
-$dbname = "tweet_academy";
+$dbname = "common-database";
 
 try {
   $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $username);
@@ -108,7 +108,8 @@ $connection = null;
         </form>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="editProfil.php"><span class="glyphicon glyphicon-edit"></span></a></li>
-          <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+          <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span></a></li>
+          <li><a href="sessionDestroy.php"><span class="glyphicon glyphicon-off"></span></a></li>
         </ul>
       </div>
     </div>

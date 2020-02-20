@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "admin";
-$dbname = "tweet_academy";
+$dbname = "common-database";
 
 try {
     $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $username);

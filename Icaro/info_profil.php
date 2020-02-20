@@ -1,7 +1,25 @@
 <?php 
-session_start();
-//echo $_SESSION['id_user']; 
-// echo $_SESSION['birthdate'];
+try { 
+    $user = 'admin';
+    $mdp = "admin";
+    $bdd = "common-database";
+
+    $pdo = new PDO  ('mysql:host=127.0.0.1;dbname='.$bdd, $user, $mdp);
+}  catch(PDOException $e) {
+    echo 'Error : ' . $e->getMessage() . PHP_EOL;
+}
+//echo $_GET['pseudo'];
+    $selectPseudo = $_GET['pseudo'];
+    $answerProfil = $pdo->prepare("SELECT * from user WHERE pseudo = '$selectPseudo'");
+    $answerProfil->execute();
+    $answerTweet = $pdo->prepare("SELECT tweet.tweet_date,tweet.content_tweet,user.pseudo,tweet.id_tweet FROM user,tweet WHERE user.pseudo='$selectPseudo'AND user.id_user=tweet.id_autor ORDER BY tweet.tweet_date DESC");
+    $answerTweet->execute();
+    foreach($answerProfil as $key) {
+        //var_dump($key);
+    $pseudo = $key['pseudo'];
+    $name = $key['name'];
+    $surname = $key['surname'];
+    $bio = $key['bio'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +33,6 @@ session_start();
   <script src="jquery.min.js"></script>
   <script src="bootstrap.min.js"></script>
   <script src="script.js"></script>
-  
 </head>
 
 <body>
@@ -39,7 +56,7 @@ session_start();
           <div class="form-group input-group">
             <input type="text" class="form-control" placeholder="Search.." name="search">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="submit">
+              <button class="btn btn-default" type="button">
                 <span class="glyphicon glyphicon-search"></span>
               </button>
             </span>
@@ -53,31 +70,40 @@ session_start();
       </div>
     </div>
   </nav>
-  <div class="container text-center">
+  <div class="container">
     <div class="row">
       <div class="col-sm-10">
+        <h1 class="text-center"><?php echo ucfirst($pseudo);?></h1>
         <div class="row">
-          <form method ="POST" id="comment_form">
-          <div class="col-sm-12">
-            <div class="panel panel-default text-left">
-              <div class="panel-body form-group">
-                <textarea class="text_content form-control" id="comment_content" name="comment_content" placeholder="Votre tweet" style="margin-bottom: 10px"></textarea>
-                <!-- <button type="button" class="btn btn-default btn-sm">
-                  <span class="glyphicon glyphicon-picture"></span> Photo
-                </button> -->
-                <button type="submit" name="submit" id="submit" style="float:right" class="btn btn-primary btn-sm">
-                  <span class="glyphicon glyphicon-send"></span>
-                  Tweet!
-                </button>
-              </div>
-            </div>
+          <div class="col-xs-1">
           </div>
-        </form>
+          <div class="col-xs-11">
+            <h4>First name:</h4>  &emsp;<label><?php echo ucfirst($name);?> </label>
+              <h4>Last name:</h4>  &emsp;<label> <?php echo ucfirst($surname);?></label>
+              <h4>Bio:</h4>  &emsp;<label> <?php if ($bio != NULL) {echo $bio;} } ?></label>
+              <h4>Following:</h4>  &emsp;<label> 0</label><h4>Followed:</h4>  &emsp;<label> 0</label><br><br>
+            <?php
+              foreach($answerTweet as $row)
+                {
+                echo "
+                <div class='col-sm-9'>
+                <form method='get' action='info_profil.php'>
+                    <div class='well'>By <b>".$row['pseudo']."</b> on <i>".$row['tweet_date']."</i>
+                </form>
+                    <br><br>
+                    ".$row['content_tweet']."
+                    </div>
+                    <button class='btn'><span class='glyphicon glyphicon-thumbs-up'></button>
+                    <button class='btn'><span class='glyphicon glyphicon-retweet'></button><br>
+                </div>"; 
+                }
+                ?>
+              <a href='sessionDestroy.php'><button class='btn btn-danger' style='margin-left: 40%;'>Logout</button></a>
+              <br><br>
+            </div>
         </div>
-        <span id="comment_message"></span> 
-            <div id="display_comment"></div>
       </div>
-      <div class="col-sm-2 well">
+      <div class="col-sm-2 well text-center">
         <p>Trending this week:</p>
         <div class="thumbnail">
           <p><strong>#Bernie<wbr>OrBust</strong></p>
@@ -100,7 +126,6 @@ session_start();
   <footer class="container-fluid text-center">
     <p><span class="glyphicon glyphicon-copyright-mark"></span> Copyright of W@C 2020. Suggestions and complaints <a href="Milton.jpg">here</a>.</p>
   </footer>
-  <script src="tweet.js"></script>
 </body>
 
 </html>

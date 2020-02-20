@@ -1,5 +1,6 @@
-<?php
+<?php 
 session_start();
+//echo $_SESSION['id_user']; 
 // echo $_SESSION['birthdate'];
 ?>
 <!DOCTYPE html>
@@ -45,7 +46,8 @@ session_start();
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="editProfil.php"><span class="glyphicon glyphicon-edit"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                    <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span></a></li>
+                    <li><a href="sessionDestroy.php"><span class="glyphicon glyphicon-off"></span></a></li>
                 </ul>
             </div>
         </div>
@@ -73,7 +75,7 @@ session_start();
 
                 $servername = "localhost";
                 $username = "admin";
-                $dbname = "tweet_academy";
+                $dbname = "common-database";
                 $search = $_GET['search'];
 
                 try {
@@ -88,10 +90,10 @@ session_start();
                     if ($tweetQuery->rowCount() >= 1) {
                         $tweetValues = $tweetQuery->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($tweetValues as $tweetValue)
-                            echo "<div class=\"row\">
+                        echo "<div class=\"row\">
                         <div class=\"col-sm-3\">
                             <div class=\"well\">
-                            <p>" . $tweetValue['name'] . "</p>
+                            <p>" . $tweetValue['pseudo'] . "</p>
                             <span class=\"glyphicon glyphicon-user\"></span>
                             </div>
                             </div>
@@ -103,6 +105,7 @@ session_start();
                         </div>
                     </div>
                 </div>";
+                            
                     } else {
                         echo 'No tweets found!';
                     }
@@ -112,7 +115,7 @@ session_start();
 
                 $connection = null;
                 ?>
-
+                
             </div>
             <div class="col-sm-2 well">
                 <p>Trending this week:</p>
