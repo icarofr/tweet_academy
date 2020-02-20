@@ -1,6 +1,6 @@
 $(document).ready(function(){
   
-$('form').submit(function(event){
+$('#comment_form').submit(function(event){
   event.preventDefault();
   var form_data = $(this).serialize();
   $.ajax({
@@ -9,7 +9,6 @@ $('form').submit(function(event){
     data: form_data,
     dataType:"JSON",
     success: function(data) {
-      delayedGetTheme()
       if(data.error != '')
       {
         $('#comment_form')[0].reset();

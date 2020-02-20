@@ -115,11 +115,12 @@ window.onload = function() {
       /#(\w+)/g,
       '<a href="tweetQuery.php?search=%23$1">#$1</a>'
     );
+    console.log('a')
     return repl;
   }
-  for (let i = 0; i < document.querySelectorAll(".tweet").length; i++) {
-    document.querySelectorAll(".tweet")[i].innerHTML = hashtag(
-      document.querySelectorAll(".tweet")[i].innerHTML
+  for (let i = 0; i < document.querySelectorAll(".tweet-innerhtml").length; i++) {
+    document.querySelectorAll(".tweet-innerhtml")[i].innerHTML = hashtag(
+      document.querySelectorAll(".tweet-innerhtml")[i].innerHTML
     );
   }
 

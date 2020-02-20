@@ -1,5 +1,6 @@
 <?php 
 session_start();
+error_reporting(0);
 //echo $_SESSION['id_user']; 
 // echo $_SESSION['birthdate'];
 ?>

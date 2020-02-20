@@ -53,24 +53,28 @@ session_start();
         </div>
     </nav>
     <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-10">
         <div class="row">
-            <div class="col-sm-10">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="panel panel-default text-left">
-                            <div class="panel-body">
-                                <p contenteditable="true" placeholder="How you doin'?"></p>
-                                <button type="button" class="btn btn-default btn-sm">
-                                    <span class="glyphicon glyphicon-picture"></span> Photo
-                                </button>
-                                <button type="button" style="float: right" class="btn btn-primary btn-sm">
-                                    <span class="glyphicon glyphicon-send"></span>
-                                    Tweet!
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <form method ="POST" id="comment_form">
+          <div class="col-sm-12">
+            <div class="panel panel-default text-left">
+              <div class="panel-body form-group">
+                <textarea class="text_content form-control" id="comment_content" name="comment_content" placeholder="Votre tweet" style="margin-bottom: 10px"></textarea>
+                <!-- <button type="button" class="btn btn-default btn-sm">
+                  <span class="glyphicon glyphicon-picture"></span> Photo
+                </button> -->
+                <button type="submit" name="submit" id="submit" style="float:right" class="btn btn-primary btn-sm">
+                  <span class="glyphicon glyphicon-send"></span>
+                  Tweet!
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <span id="comment_message"></span> 
+            <div id="display_comment"></div>
+      </div>
                 <?php
 
                 $servername = "localhost";
@@ -90,21 +94,18 @@ session_start();
                     if ($tweetQuery->rowCount() >= 1) {
                         $tweetValues = $tweetQuery->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($tweetValues as $tweetValue)
-                        echo "<div class=\"row\">
-                        <div class=\"col-sm-3\">
-                            <div class=\"well\">
-                            <p>" . $tweetValue['pseudo'] . "</p>
-                            <span class=\"glyphicon glyphicon-user\"></span>
+                        echo "<div class='col-xs-12'>
+                        <form method='get' action='profil.php'>
+                        <div class='well tweet-content'  align='left'><div class='tweet-innerhtml'>&emsp;<b><input type='hidden' name='id' value='@" . $tweetValue['pseudo']. "'/>
+                        <button class='btn btn-link' type='submit'>@" . $tweetValue['pseudo']. "</button></b> on <i>" . $tweetValue['tweet_date'] . "</i>
+                        </form>
+                            <br>
+                            " . $tweetValue['content_tweet'] . "<br></div><div class='buttons' style='float: right;'>
+                            <button class='btn btn-secondary'><span class='glyphicon glyphicon-thumbs-up'></button>
+                            <button class='btn btn-secondary'><span class='glyphicon glyphicon-comment'></button>
+                            <button class='btn btn-secondary'><span class='glyphicon glyphicon-retweet'></button></div>
                             </div>
-                            </div>
-                    <div class=\"col-sm-9\">
-                        <div class=\"well\">
-                            <p class='tweet'>" . $tweetValue['content_tweet'] . "</p>
-                            <button class='btn'><span class='glyphicon glyphicon-thumbs-up'></button>
-                            <button class='btn'><span class='glyphicon glyphicon-retweet'></button>
-                        </div>
-                    </div>
-                </div>";
+                        </div>";
                             
                     } else {
                         echo 'No tweets found!';

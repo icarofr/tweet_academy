@@ -77,7 +77,7 @@ if (isset($_SESSION['id_user'])) {
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="my_feed.php">Home</a></li>
+          <li><a href="my_feed.php">Home</a></li>
           <li><a href="message.php">Messages</a></li>
           <li><a href="#" onclick="switchTheme()">Theme</a></li>
         </ul>
@@ -92,8 +92,9 @@ if (isset($_SESSION['id_user'])) {
           </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="editProfil.php"><span class="glyphicon glyphicon-edit"></span></a></li>
+          <li class="active"><a href="editProfil.php"><span class="glyphicon glyphicon-edit"></span></a></li>
           <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span></a></li>
+          <li><a href="sessionDestroy.php"><span class="glyphicon glyphicon-off"></span></a></li>
         </ul>
       </div>
     </div>
