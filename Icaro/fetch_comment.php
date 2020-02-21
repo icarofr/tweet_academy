@@ -10,6 +10,11 @@ $username = "admin";
 $dbname = "common-database";
 $connect = new PDO("mysql:host=$servername;dbname=$dbname", $username, $username);
 $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$ifFollowers = $connect->prepare("SELECT id_followed FROM follow LEFT JOIN user ON follow.id_followed = user.id_user WHERE id_follower='" . $_SESSION['id_user']. "';");
+$ifFollowers->execute();
+$ifFollowers = $ifFollowers->fetchAll();
+
+
 $statement = $connect->query("SELECT tweet.tweet_date,tweet.content_tweet,user.pseudo,tweet.id_tweet FROM user,tweet WHERE tweet.id_autor=user.id_user ORDER BY tweet.id_tweet DESC");
 $statement->execute();
 $result = $statement->fetchAll();
