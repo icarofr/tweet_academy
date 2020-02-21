@@ -176,10 +176,10 @@ if (isset($_SESSION['id_user'])) {
                   </tr>
                   <tr>
                     <td align="right">
-                      <label>Avatar URL :</label>
+                      <label>Avatar:</label>
                     </td>
                     <td>
-                      <input class="edit_profil" type="text" name="avatar" placeholder="Votre avatar" />
+                      <input class="edit_profil" type="file" name="avatar" placeholder="Votre avatar" />
                     </td>
                   </tr>
                   <tr>
