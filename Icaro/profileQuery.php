@@ -95,9 +95,9 @@ $connection = null;
       <div class="col-sm-10">
         <h1 class="text-center">User profile</h1>
         <div class="row">
-          <div class="col-xs-1">
+          <div class="col-sm-1">
           </div>
-          <div class="col-xs-11">
+          <div class="col-sm-11">
             <?php
             echo "<h4>First name:</h4>  &emsp;<label> " . $displayProfile['name']  . "</label>
               <h4>Last name:</h4>  &emsp;<label> " . $displayProfile['surname']  . "</label>

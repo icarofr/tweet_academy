@@ -23,7 +23,7 @@ if (isset($_POST['forminscription'])) {
             if ($nouvelleInscription->checkEmail($Mail)) {
                 if($nouvelleInscription->checkPseudo($Pseudo)) {
                   $nouvelleInscription->insert();
-                  $succes = "<font color='green'><strong>Success!</strong> Votre inscription à bien été validé.</  font>";
+                  $succes = "<font color='green'><strong>Success!</strong> Votre inscription à bien été validé.</font>";
                 } else {
                   $error = $nouvelleInscription->error('Pseudo déja existant !');
                 }
@@ -138,7 +138,7 @@ if (isset($_POST['forminscription'])) {
                   </tr>
                 </table><br><br>
 
-                <button type="submit" name="forminscription" class="submit_inscription">Valider</button>
+                <button type="submit" name="forminscription" class="btn submit_inscription">Valider</button>
                 <br><br>
                 <section id="error"><?php error_reporting(0); 
                 echo $error;

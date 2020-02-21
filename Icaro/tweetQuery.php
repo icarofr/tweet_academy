@@ -94,13 +94,13 @@ session_start();
                     if ($tweetQuery->rowCount() >= 1) {
                         $tweetValues = $tweetQuery->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($tweetValues as $tweetValue)
-                        echo "<div class='col-xs-12'>
+                        echo "<div class='col-sm-12'>
                         <form method='get' action='profil.php'>
                         <div class='well tweet-content'  align='left'><div class='tweet-innerhtml'>&emsp;<b><input type='hidden' name='id' value='@" . $tweetValue['pseudo']. "'/>
                         <button class='btn btn-link' type='submit'>@" . $tweetValue['pseudo']. "</button></b> on <i>" . $tweetValue['tweet_date'] . "</i>
                         </form>
                             <br>
-                            " . $tweetValue['content_tweet'] . "<br></div><div class='buttons' style='float: right;'>
+                            <div class='tweet'>" . $tweetValue['content_tweet'] . "</div><br></div><div class='buttons' style='float: right;'>
                             <button class='btn btn-secondary'><span class='glyphicon glyphicon-thumbs-up'></button>
                             <button class='btn btn-secondary'><span class='glyphicon glyphicon-comment'></button>
                             <button class='btn btn-secondary'><span class='glyphicon glyphicon-retweet'></button></div>

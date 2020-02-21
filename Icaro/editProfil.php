@@ -36,8 +36,8 @@ if (isset($_SESSION['id_user'])) {
     $insert->editBio();
   }
   if (isset($_POST['password1']) and !empty($_POST['password1']) and isset($_POST['password2']) and !empty($_POST['password2'])) {
-    $mdp1 = hash('ripemd160', $_POST['password1']."vive le projet tweet_academy");
-    $mdp2 = hash('ripemd160', $_POST['password2']."vive le projet tweet_academy");
+    $mdp1 = hash('ripemd160', $_POST['password1'] . "vive le projet tweet_academy");
+    $mdp2 = hash('ripemd160', $_POST['password2'] . "vive le projet tweet_academy");
 
     if ($mdp1 == $mdp2) {
       $insert = new EditMdp($_SESSION, $mdp1);
@@ -175,9 +175,17 @@ if (isset($_SESSION['id_user'])) {
                     </td>
                   </tr>
                   <tr>
+                    <td align="right">
+                      <label>Avatar URL :</label>
+                    </td>
+                    <td>
+                      <input class="edit_profil" type="text" name="avatar" placeholder="Votre avatar" />
+                    </td>
+                  </tr>
+                  <tr>
                     <td>
                       <div class="edit_profil">
-                        <input type="submit" name="submit" value="INFORMATIONS MODIFIEES" />
+                        <input type="submit" name="submit" value="Modifier" />
                         <?php echo $error; ?></section>
                 </table>
             </div>

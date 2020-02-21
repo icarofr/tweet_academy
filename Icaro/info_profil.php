@@ -75,9 +75,9 @@ try {
       <div class="col-sm-10">
         <h1 class="text-center"><?php echo ucfirst($pseudo);?></h1>
         <div class="row">
-          <div class="col-xs-1">
+          <div class="col-sm-1">
           </div>
-          <div class="col-xs-11">
+          <div class="col-sm-11">
             <h4>First name:</h4>  &emsp;<label><?php echo ucfirst($name);?> </label>
               <h4>Last name:</h4>  &emsp;<label> <?php echo ucfirst($surname);?></label>
               <h4>Bio:</h4>  &emsp;<label> <?php if ($bio != NULL) {echo $bio;} } ?></label>

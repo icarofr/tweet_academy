@@ -19,13 +19,13 @@ foreach ($result as $row) {
     //var_dump($row);
     $pseudo = $row['pseudo'];
     $output .= "
-    <div class='col-xs-12'>
+    <div class='well col-sm-2'>.</div><div class='col-sm-10'>
     <form method='get' action='profil.php'>
     <div class='well tweet-content'  align='left'><div class='tweet-innerhtml'>&emsp;<b><input type='hidden' name='id' value='@$pseudo'/>
         <button class='btn btn-link' type='submit'>@$pseudo</button></b> on <i>" . $row['tweet_date'] . "</i>
     </form>
         <br>
-        " . $row['content_tweet'] . "<br></div><div class='buttons' style='float: right;'>
+        <div class='tweet'>" . $row['content_tweet'] . "</div><br></div><div class='buttons' style='float: right;'>
         <button class='btn btn-secondary'><span class='glyphicon glyphicon-thumbs-up'></button>
         <button class='btn btn-secondary'><span class='glyphicon glyphicon-comment'></button>
         <button class='btn btn-secondary'><span class='glyphicon glyphicon-retweet'></button></div>
@@ -46,6 +46,18 @@ function hashtag(text) {
   for (let i = 0; i < document.querySelectorAll(\".tweet-innerhtml\").length; i++) {
     document.querySelectorAll(\".tweet-innerhtml\")[i].innerHTML = hashtag(
       document.querySelectorAll(\".tweet-innerhtml\")[i].innerHTML
+    );
+  }    
+  function arobase(text) {
+    var repl = text.replace(
+      /@(\w+)/g,
+      '<a href=\"profil.php?id=%40$1\">@$1</a>'
+    );
+    return repl;
+  }
+  for (let i = 0; i < document.querySelectorAll(\".tweet\").length; i++) {
+    document.querySelectorAll(\".tweet\")[i].innerHTML = arobase(
+      document.querySelectorAll(\".tweet\")[i].innerHTML
     );
   }      
 </script>";

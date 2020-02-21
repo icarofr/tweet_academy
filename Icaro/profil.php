@@ -12,6 +12,10 @@ try {
     $displayProfile = $connection->prepare("SELECT * FROM `user` 
     WHERE `pseudo` = \"" . substr($_GET['id'], 1)  . "\"");
     $displayProfile->execute();
+    if ($displayProfile->rowCount() == 0) {
+      echo "User not found! Click <a href=\"javascript:history.back()\">here</a> to try again.";
+      die;
+    }
     $displayProfile = $displayProfile->fetchAll(0)[0];
     $userId = $displayProfile['id_user'];
     if ($userId == $_SESSION['id_user']) {
@@ -23,8 +27,7 @@ try {
       if ($followQuery->rowCount() > 0) {
         $footerButton = "<a href='followQuery.php?id=%40" . $displayProfile['pseudo'] . "&action=unfollow'>
         <button class='btn' style='margin-left: 40%;'>Unfollow</button></a>";
-      }
-      else {
+      } else {
         $footerButton = "<a href='followQuery.php?id=%40" . $displayProfile['pseudo'] . "&action=follow'>
         <button class='btn btn-primary' style='margin-left: 40%;'>Follow</button></a>";
       }
@@ -117,11 +120,11 @@ $connection = null;
   <div class="container">
     <div class="row">
       <div class="col-sm-10">
-        <h1 class="text-center">User profile</h1>
+        <h1 class="text-center">@<?echo $displayProfile['pseudo'];?></h1>
         <div class="row">
-          <div class="col-xs-1">
+          <div class="col-sm-1">
           </div>
-          <div class="col-xs-11">
+          <div class="col-sm-11">
             <?php
             echo "<h4>First name:</h4>  &emsp;<label> " . $displayProfile['name']  . "</label>
               <h4>Last name:</h4>  &emsp;<label> " . $displayProfile['surname']  . "</label>
