@@ -28,7 +28,7 @@ error_reporting(0);
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="my_feed.php">Tweet@!</a>
+        <a class="navbar-brand" href="index.php">Tweet@!</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
@@ -64,7 +64,13 @@ error_reporting(0);
                 <div class="panel-body form-group">
                   <textarea class="text_content form-control" id="comment_content" name="comment_content" placeholder="Votre tweet" style="margin-bottom: 10px"></textarea>
                   <label for="tweetFile" class="btn btn-default btn-sm">
-                      <span class="glyphicon glyphicon-picture"></span> Photo</label>
+                    <span class="glyphicon glyphicon-picture"></span> Photo</label>
+                  <a id="smiley" title="smiley" href="#" onclick="enableTxt(this)">&#128515;</a><a id="wink" title="wink" href="#" onclick="enableTxt(this)">&#128521;</a><a id="tongue" title="tongue" href="#" onclick="enableTxt(this)">&#128523;</a><a id="heartface" title="heartface" href="#" onclick="enableTxt(this)">&#128525;</a><a id="glasses" title="glasses" href="#" onclick="enableTxt(this)">&#128526;</a><a id="kiss" title="kiss" href="#" onclick="enableTxt(this)">&#128536;</a><a id="angry" title="angry" href="#" onclick="enableTxt(this)">&#128545;</a><a id="shook" title="shook" href="#" onclick="enableTxt(this)">&#128552;</a><a id="sleepy" title="sleepy" href="#" onclick="enableTxt(this)">&#128564;</a><a id="sadface" title="sadface" href="#" onclick="enableTxt(this)">&#128530;</a><a id="thumbsup" title="thumbsup" href="#" onclick="enableTxt(this)">&#128077;</a><wbr><a id="thumbsdown" title="thumbsdown" href="#" onclick="enableTxt(this)">&#128078;</a><a id="fuck" title="fuck" href="#" onclick="enableTxt(this)">&#128405;</a><a id="clap" title="clap" href="#" onclick="enableTxt(this)">&#128079;</a><a id="dead" title="dead" href="#" onclick="enableTxt(this)">&#128128;</a><a id="yass" title="yass" href="#" onclick="enableTxt(this)">&#128133;</a><a id="heart" title="heart" href="#" onclick="enableTxt(this)">&#128147;</a><a id="brokenheart" title="brokenheart" href="#" onclick="enableTxt(this)">&#128148;</a><a id="poop" title="poop" href="#" onclick="enableTxt(this)">&#128169;</a><a id="strong" title="strong" href="#" onclick="enableTxt(this)">&#128170;</a><a id="100" title="100" href="#" onclick="enableTxt(this)">&#128175;</a><a id="dollar" title="dollar" href="#" onclick="enableTxt(this)">&#128178;</a><a id="18" title="18" href="#" onclick="enableTxt(this)">&#128286;</a><a id="fire" title="fire" href="#" onclick="enableTxt(this)">&#128293;</a>
+                  <script>
+                    function enableTxt(elem) {
+                      $('#comment_content').val($('#comment_content').val() + $(elem).html());
+                    }
+                  </script>
                   <input type="file" name="tweetFile" id="tweetFile" style="display: none;"></input>
 
                   <button type="submit" name="submit" id="submit" style="float:right" class="btn btn-primary btn-sm">
