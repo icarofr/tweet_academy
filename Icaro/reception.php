@@ -35,12 +35,12 @@ if (isset($_SESSION['id_user']) and !empty($_SESSION['id_user'])) {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php">Tweet@!</a>
+        <a class="navbar-brand" href="my_feed.php">Tweet@!</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li class="active"><a href="my_feed.php">Home</a></li>
-          <li><a href="#">Messages</a></li>
+          <li><a href="envoi.php">Messages</a></li>
           <li><a href="#" onclick="switchTheme()">Theme</a></li>
         </ul>
         <form action="tweetQuery.php" class="navbar-form navbar-right" role="search" method="GET">

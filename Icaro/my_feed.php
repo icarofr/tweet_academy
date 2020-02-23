@@ -33,7 +33,7 @@ error_reporting(0);
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li class="active"><a href="my_feed.php">Home</a></li>
-          <li><a href="#">Messages</a></li>
+          <li><a href="envoi.php">Messages</a></li>
           <li><a href="#" onclick="switchTheme()">Theme</a></li>
         </ul>
         <form action="tweetQuery.php" class="navbar-form navbar-right" role="search" method="GET">
