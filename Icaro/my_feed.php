@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 error_reporting(0);
 //echo $_SESSION['id_user']; 
@@ -16,7 +16,7 @@ error_reporting(0);
   <script src="jquery.min.js"></script>
   <script src="bootstrap.min.js"></script>
   <script src="script.js"></script>
-  
+
 </head>
 
 <body>
@@ -58,25 +58,26 @@ error_reporting(0);
     <div class="row">
       <div class="col-sm-10">
         <div class="row">
-          <form method ="POST" id="comment_form">
-          <div class="col-sm-12">
-            <div class="panel panel-default text-left">
-              <div class="panel-body form-group">
-                <textarea class="text_content form-control" id="comment_content" name="comment_content" placeholder="Votre tweet" style="margin-bottom: 10px"></textarea>
-                <!-- <button type="button" class="btn btn-default btn-sm">
-                  <span class="glyphicon glyphicon-picture"></span> Photo
-                </button> -->
-                <button type="submit" name="submit" id="submit" style="float:right" class="btn btn-primary btn-sm">
-                  <span class="glyphicon glyphicon-send"></span>
-                  Tweet!
-                </button>
+          <form method="POST" id="comment_form">
+            <div class="col-sm-12">
+              <div class="panel panel-default text-left">
+                <div class="panel-body form-group">
+                  <textarea class="text_content form-control" id="comment_content" name="comment_content" placeholder="Votre tweet" style="margin-bottom: 10px"></textarea>
+                  <label for="tweetFile" class="btn btn-default btn-sm">
+                      <span class="glyphicon glyphicon-picture"></span> Photo</label>
+                  <input type="file" name="tweetFile" id="tweetFile" style="display: none;"></input>
+
+                  <button type="submit" name="submit" id="submit" style="float:right" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-send"></span>
+                    Tweet!
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
         </div>
-        <span id="comment_message"></span> 
-            <div id="display_comment"></div>
+        <span id="comment_message"></span>
+        <div id="display_comment"></div>
       </div>
       <div class="col-sm-2 well">
         <p>Trending this week:</p>

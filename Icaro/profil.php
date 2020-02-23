@@ -157,7 +157,7 @@ try {
             // SELECT tweet.tweet_date,tweet.content_tweet,user.pseudo FROM user,tweet WHERE tweet.id_autor=1 AND user.id_user=1
 // session_start();
 $id_user = $_SESSION['id_user'];
-$statement = $connection->query("SELECT tweet.tweet_date,tweet.content_tweet,user.pseudo,tweet.id_tweet FROM user,tweet WHERE tweet.id_autor=user.id_user AND user.id_user=". $userId . " ORDER BY tweet.id_tweet DESC");
+$statement = $connection->query("SELECT tweet.tweet_date,tweet.content_tweet,user.pseudo,user.id_user,tweet.id_tweet FROM user,tweet WHERE tweet.id_autor=user.id_user AND user.id_user=". $userId . " ORDER BY tweet.id_tweet DESC");
 $statement->execute();
 $result = $statement->fetchAll();
 
@@ -166,7 +166,9 @@ foreach ($result as $row) {
     //var_dump($row);
     $pseudo = $row['pseudo'];
     $output .= "
-    <div class='well col-sm-2'>.</div><div class='col-sm-10'>
+    <div class='well col-sm-2'>" . (is_file("./avatar/" . $row['id_user'] . ".png") ? 
+    "<img width=\"50\" height=\"50\" src=\"./avatar/" . $row['id_user'] . ".png\">" :
+    "<span class=\"glyphicon glyphicon-user\"></span>") . "</div><div class='col-sm-10'>
     <form method='get' action='profil.php'>
     <div class='well tweet-content'  align='left'><div class='tweet-innerhtml'>&emsp;<b><input type='hidden' name='id' value='@$pseudo'/>
         <button class='btn btn-link' type='submit'>@$pseudo</button></b> on <i>" . $row['tweet_date'] . "</i>
