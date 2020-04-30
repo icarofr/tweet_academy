@@ -1,7 +1,6 @@
-
 $(document).ready(function(){
   
-$('form').submit(function(event){
+$('#comment_form').submit(function(event){
   event.preventDefault();
   var form_data = $(this).serialize();
   $.ajax({
@@ -10,7 +9,6 @@ $('form').submit(function(event){
     data: form_data,
     dataType:"JSON",
     success: function(data) {
-
       if(data.error != '')
       {
         $('#comment_form')[0].reset();
@@ -32,6 +30,7 @@ function load_comment() {
       $('#display_comment').html(data);
     }
   })
+  
 },1000)
 }
 load_comment();

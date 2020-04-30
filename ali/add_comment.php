@@ -1,12 +1,13 @@
 <?php 
 session_start();
+error_reporting(0);
 $id_user = $_SESSION['id_user'];
 
 
 $servername = "localhost";
 $username = "admin";
 $dbname = "common-database";
-$pseudo = $_POST['username'];
+
 
 try {
     $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $username);

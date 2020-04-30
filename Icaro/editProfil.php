@@ -205,7 +205,7 @@ if (isset($_SESSION['id_user'])) {
           <br>
           <div class="well col-sm-2" style="float: left;">
             <div class="well">
-              <? if (is_file("./avatar/" . $_SESSION['id_user'] . ".png")) {
+              <?php if (is_file("./avatar/" . $_SESSION['id_user'] . ".png")) {
                 echo "<img width=\"50\" height=\"50\" src=\"./avatar/" . $_SESSION['id_user'] . ".png\">";
               } else {
                 echo "<span class=\"glyphicon glyphicon-user\"></span>";

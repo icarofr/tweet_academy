@@ -2,6 +2,7 @@
 $servername = "localhost";
 $username = "admin";
 $dbname = "common-database";
+error_reporting(0);
 
 try {
   $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $username);
@@ -12,6 +13,10 @@ try {
     $displayProfile = $connection->prepare("SELECT * FROM `user` 
     WHERE `pseudo` = \"" . substr($_GET['id'], 1)  . "\"");
     $displayProfile->execute();
+    if ($displayProfile->rowCount() == 0) {
+      echo "User not found! Click <a href=\"javascript:history.back()\">here</a> to try again.";
+      die;
+    }
     $displayProfile = $displayProfile->fetchAll(0)[0];
     $userId = $displayProfile['id_user'];
     if ($userId == $_SESSION['id_user']) {
@@ -23,8 +28,7 @@ try {
       if ($followQuery->rowCount() > 0) {
         $footerButton = "<a href='followQuery.php?id=%40" . $displayProfile['pseudo'] . "&action=unfollow'>
         <button class='btn' style='margin-left: 40%;'>Unfollow</button></a>";
-      }
-      else {
+      } else {
         $footerButton = "<a href='followQuery.php?id=%40" . $displayProfile['pseudo'] . "&action=follow'>
         <button class='btn btn-primary' style='margin-left: 40%;'>Follow</button></a>";
       }
@@ -63,7 +67,6 @@ try {
   echo $e->getMessage();
 }
 
-$connection = null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,12 +91,12 @@ $connection = null;
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="my_feed.php">Tweet@!</a>
+        <a class="navbar-brand" href="index.php">Tweet@!</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="my_feed.php">Home</a></li>
-          <li><a href="#">Messages</a></li>
+          <li><a href="my_feed.php">Home</a></li>
+          <li><a href="envoi.php">Messages</a></li>
           <li><a href="#" onclick="switchTheme()">Theme</a></li>
         </ul>
         <form action="tweetQuery.php" class="navbar-form navbar-right" role="search" method="GET">
@@ -108,7 +111,7 @@ $connection = null;
         </form>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="editProfil.php"><span class="glyphicon glyphicon-edit"></span></a></li>
-          <li><a href="profil.php"><span class="glyphicon glyphicon-user"></span></a></li>
+          <li class="active"><a href="profil.php"><span class="glyphicon glyphicon-user"></span></a></li>
           <li><a href="sessionDestroy.php"><span class="glyphicon glyphicon-off"></span></a></li>
         </ul>
       </div>
@@ -117,11 +120,11 @@ $connection = null;
   <div class="container">
     <div class="row">
       <div class="col-sm-10">
-        <h1 class="text-center">User profile</h1>
+        <h1 class="text-center">@<?php echo $displayProfile['pseudo'];?></h1>
         <div class="row">
-          <div class="col-xs-1">
+          <div class="col-sm-1">
           </div>
-          <div class="col-xs-11">
+          <div class="col-sm-11">
             <?php
             echo "<h4>First name:</h4>  &emsp;<label> " . $displayProfile['name']  . "</label>
               <h4>Last name:</h4>  &emsp;<label> " . $displayProfile['surname']  . "</label>
@@ -150,8 +153,64 @@ $connection = null;
 
             echo "<br><br>"
               . $footerButton .
-              "<br><br>";
-            ?>
+              "<br><br><br>";
+            // SELECT tweet.tweet_date,tweet.content_tweet,user.pseudo FROM user,tweet WHERE tweet.id_autor=1 AND user.id_user=1
+// session_start();
+$id_user = $_SESSION['id_user'];
+$statement = $connection->query("SELECT tweet.tweet_date,tweet.content_tweet,user.pseudo,user.id_user,tweet.id_tweet FROM user,tweet WHERE tweet.id_autor=user.id_user AND user.id_user=". $userId . " ORDER BY tweet.id_tweet DESC");
+$statement->execute();
+$result = $statement->fetchAll();
+
+$output = '';
+foreach ($result as $row) {
+    //var_dump($row);
+    $pseudo = $row['pseudo'];
+    $output .= "
+    <div class='well col-sm-2'>" . (is_file("./avatar/" . $row['id_user'] . ".png") ? 
+    "<img width=\"50\" height=\"50\" src=\"./avatar/" . $row['id_user'] . ".png\">" :
+    "<span class=\"glyphicon glyphicon-user\"></span>") . "</div><div class='col-sm-10'>
+    <form method='get' action='profil.php'>
+    <div class='well tweet-content'  align='left'><div class='tweet-innerhtml'>&emsp;<b><input type='hidden' name='id' value='@$pseudo'/>
+        <button class='btn btn-link' type='submit'>@$pseudo</button></b> on <i>" . $row['tweet_date'] . "</i>
+    </form>
+        <br>
+        <div class='tweet'>" . $row['content_tweet'] . "</div><br></div><div class='buttons' style='float: right;'>
+        <button class='btn btn-secondary'><span class='glyphicon glyphicon-thumbs-up'></button>
+        <button class='btn btn-secondary'><span class='glyphicon glyphicon-comment'></button>
+        <button class='btn btn-secondary'><span class='glyphicon glyphicon-retweet'></button></div>
+        </div>
+    </div>";
+    //$output .= get_reply_comment($connection);
+    //var_dump($output);
+}
+//echo "okok";
+echo $output . "<script>getTheme();
+function hashtag(text) {
+    var repl = text.replace(
+      /#(\w+)/g,
+      '<a href=\"tweetQuery.php?search=%23$1\">#$1</a>'
+    );
+    return repl;
+  }
+  for (let i = 0; i < document.querySelectorAll(\".tweet-innerhtml\").length; i++) {
+    document.querySelectorAll(\".tweet-innerhtml\")[i].innerHTML = hashtag(
+      document.querySelectorAll(\".tweet-innerhtml\")[i].innerHTML
+    );
+  }    
+  function arobase(text) {
+    var repl = text.replace(
+      /@(\w+)/g,
+      '<a href=\"profil.php?id=%40$1\">@$1</a>'
+    );
+    return repl;
+  }
+  for (let i = 0; i < document.querySelectorAll(\".tweet\").length; i++) {
+    document.querySelectorAll(\".tweet\")[i].innerHTML = arobase(
+      document.querySelectorAll(\".tweet\")[i].innerHTML
+    );
+  }      
+</script><br><br>";
+?>
           </div>
         </div>
       </div>
